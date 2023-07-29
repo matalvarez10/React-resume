@@ -1,35 +1,94 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { ChangeEvent, useState } from "react";
+import InputsFieldComponent from "./components/inputsFieldComponent";
+import ResumeComponent from "./components/resumeComponent";
+import { IDescriptionData } from "./interfaces/inputDesc.interface";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [formData, setFormData] = useState<IDescriptionData>({
+    nombre: "",
+    apellido: "",
+    cargo:"",
+    about:"",
+    numero: "",
+    correo:"",
+    sitioWeb:"",
+    ubicacion:"",
+  });
+
+  const handleData = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <InputsFieldComponent handleData={handleData} formData={formData}></InputsFieldComponent>
+    <ResumeComponent formData={formData}></ResumeComponent>
+{/*       <div className="contenedor">
+        <input
+          type="text"
+          placeholder="nombre"
+          name="nombre"
+          value={formData.nombre}
+          onChange={handleData}
+        />
+        <input
+          type="text"
+          placeholder="apellido"
+          name="apellido"
+          value={formData.apellido}
+          onChange={handleData}
+        />
+        <input
+          type="text"
+          placeholder="numero"
+          name="numero"
+          value={formData.numero}
+          onChange={handleData}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div className="contenedor">
+        <p>{formData.apellido}</p>
+        <p>{formData.nombre}</p>
+        <p>{formData.numero}</p>
+      </div> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+
+
+/* 
+// seccion personal
+nombre
+apellido
+cargo
+perfil
+numero
+correo
+sitio web
+
+//Experiencia Laboral
+Empresa
+rol
+cargo
+fecha inicio
+fecha termino
+descripcion
+
+//habilidades
+nombre
+nivel (dropdown)
+
+//educacion
+institucion
+grado
+fecha inicio
+fecha termino
+
+//idiomas
+same as skills
+
+
+*/
