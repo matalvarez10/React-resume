@@ -1,11 +1,11 @@
-import InputDescriptionComponent from "./inputsDescriptionComponent";
-import { InputDescriptionProps } from "../interfaces/inputDesc.interface";
+export interface InputChildrenComponent {
+    children: React.ReactNode;
+  }
 
-
-const InputsFieldComponent:React.FC<InputDescriptionProps> = ({handleData,formData}) => {
+const InputsFieldComponent:React.FC<InputChildrenComponent> = ({children}) => {
     return ( 
-    <div className="contenedor">    
-        <InputDescriptionComponent handleData={handleData} formData={formData}></InputDescriptionComponent>
+    <div className="contenedor">
+        {children}    
     </div> 
     );
 }
