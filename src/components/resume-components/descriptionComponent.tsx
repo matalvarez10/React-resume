@@ -1,4 +1,4 @@
-import { IDescriptionData } from "../interfaces/inputDesc.interface";
+import { IDescriptionData } from "../../interfaces/inputDesc.interface";
 
 const DescriptionComponent = ({formData}:{ formData:IDescriptionData}) => {
     return ( 

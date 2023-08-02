@@ -1,4 +1,5 @@
 export interface IExperienceData{
+    id:number;
     posicion:string;
     companyName:string;
     lugar:string;
