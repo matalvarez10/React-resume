@@ -2,11 +2,11 @@ import { ChangeEvent, useState } from "react";
 import InputsFieldComponent from "./components/inputsFieldComponent";
 import ResumeComponent from "./components/resumeComponent";
 import { IDescriptionData } from "./interfaces/inputDesc.interface";
-import InputDescriptionComponent from "./components/inputs-components/inputsDescriptionComponent";
-import InputsExperience from "./components/inputs-components/inputseExperienceComponent";
+import InputDescriptionComponent from "./components/inputs-components/inputs-description-components/inputsDescriptionComponent";
+import InputsExperience from "./components/inputs-components/input-experience-components/inputseExperienceComponent";
 import { IExperienceData } from "./interfaces/inputExperience.interface";
-import AllJobsComponent from "./components/inputs-components/allJobsComponent";
-import { initialExperienceId } from "./components/inputs-components/inputseExperienceComponent";
+import AllJobsComponent from "./components/inputs-components/input-experience-components/allJobsComponent";
+import { initialExperienceId } from "./components/inputs-components/input-experience-components/inputseExperienceComponent";
 
 function App() {
   const [formData, setFormData] = useState<IDescriptionData>({
@@ -26,9 +26,9 @@ function App() {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-  const handleExpResumeData = (event: EventTarget & HTMLInputElement, id: number) => {
+  const handleExpResumeData = (event: (EventTarget & HTMLInputElement) | (EventTarget & HTMLTextAreaElement) , id: number) => {
     
-    const { name, value } = event;
+    const { name, value } = event ;
     setAllJobs(prevArray => {
       return prevArray.map(job => {
         if (job.id === id) {

@@ -1,5 +1,5 @@
-import { InputExperienceData } from "../../interfaces/inputExperience.interface";
-import { IExperienceData } from "../../interfaces/inputExperience.interface";
+import { InputExperienceData } from "../../../interfaces/inputExperience.interface";
+import { IExperienceData } from "../../../interfaces/inputExperience.interface";
 import { ChangeEvent, useState } from "react";
 
 const InputsExperience:React.FC<InputExperienceData> = ({handleClickExp }) => {

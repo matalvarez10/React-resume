@@ -1,4 +1,4 @@
-import { InputDescriptionProps } from "../../interfaces/inputDesc.interface";
+import { InputDescriptionProps } from "../../../interfaces/inputDesc.interface";
 
 const InputDescriptionComponent:React.FC<InputDescriptionProps> = ({handleData,formData}) => {
     return ( 
