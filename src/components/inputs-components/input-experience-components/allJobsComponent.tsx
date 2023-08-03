@@ -1,8 +1,7 @@
 import { IExperienceData } from "../../../interfaces/inputExperience.interface";
 import JobComponent from "./jobComponent";
-
 interface AllJobsComponentProps {
-  allJobsArray: IExperienceData[];
+  allJobsArray: IExperienceData[] ;
   handleDeleteJob: (id: number) => void;
   handleExpResumeData: (
     event:

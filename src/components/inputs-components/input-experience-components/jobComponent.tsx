@@ -1,8 +1,8 @@
 import EditInputs from "./editInputsComponent";
 import { IExperienceData } from "../../../interfaces/inputExperience.interface";
-import { useState } from "react";
+import { useState } from "react";;
 interface JobComponentProps {
-  job: IExperienceData;
+  job: IExperienceData ;
   handleDeleteJob: (id: number) => void;
   handleExpResumeData: (
     event:
