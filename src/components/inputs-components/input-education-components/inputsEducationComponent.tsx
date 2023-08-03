@@ -1,14 +1,20 @@
 import { IEducationData } from "../../../interfaces/inputEducation.interface";
 import { useState, ChangeEvent } from "react";
 
-const InputEducation = () => {
-  const [educationData, setEducationData] = useState<IEducationData>(initialValues);
+interface InputEducationProps {
+  handleAddEducation: (educacionData: IEducationData) => void;
+}
+const InputEducation: React.FC<InputEducationProps> = ({
+  handleAddEducation,
+}) => {
+  const [educationData, setEducationData] = useState<IEducationData>(
+    initialEducationValues
+  );
 
   const handleEducationData = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setEducationData({ ...educationData, [name]: value });
   };
-  console.log(educationData);
   return (
     <form>
       <input
@@ -35,12 +41,20 @@ const InputEducation = () => {
         value={educationData.fechaTermino}
         onChange={handleEducationData}
       />
-      <button type="button">SUBMIT</button>
+      <button
+        type="button"
+        onClick={() => {
+          initialEducationId++;
+          handleAddEducation(educationData);
+        }}
+      >
+        SUBMIT
+      </button>
     </form>
   );
 };
 
-let initialValues = {
+let initialEducationValues = {
   id: 0,
   courseStudied: "",
   institucion: "",

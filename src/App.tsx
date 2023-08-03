@@ -1,13 +1,20 @@
 import { ChangeEvent, useState } from "react";
-import InputsFieldComponent from "./components/inputsFieldComponent";
-import ResumeComponent from "./components/resumeComponent";
+///interfaces
 import { IDescriptionData } from "./interfaces/inputDesc.interface";
-import InputDescriptionComponent from "./components/inputs-components/inputs-description-components/inputsDescriptionComponent";
-import InputsExperience from "./components/inputs-components/input-experience-components/inputseExperienceComponent";
 import { IExperienceData } from "./interfaces/inputExperience.interface";
+/// componentes para ingresar experiencia
+import InputsExperience from "./components/inputs-components/input-experience-components/inputseExperienceComponent";
 import AllJobsComponent from "./components/inputs-components/input-experience-components/allJobsComponent";
 import { initialExperienceId } from "./components/inputs-components/input-experience-components/inputseExperienceComponent";
+///inputs para secciones inputs y cv
+import InputsFieldComponent from "./components/inputsFieldComponent";
+import ResumeComponent from "./components/resumeComponent";
+import InputDescriptionComponent from "./components/inputs-components/inputs-description-components/inputsDescriptionComponent";
+///inputs seccion education
 import InputEducation from "./components/inputs-components/input-education-components/inputsEducationComponent";
+import { IEducationData } from "./interfaces/inputEducation.interface";
+import { initialEducationId } from "./components/inputs-components/input-education-components/inputsEducationComponent";
+import AllEducationComponent from "./components/inputs-components/input-education-components/allEducationComponent";
 
 function App() {
   const [formData, setFormData] = useState<IDescriptionData>({
@@ -22,23 +29,30 @@ function App() {
   });
 
   const [allJobs, setAllJobs] = useState<IExperienceData[]>([]);
+  const [allEducation, setAllEducation] = useState<IEducationData[]>([]);
+
+  console.log(allEducation);
 
   const handleData = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-  const handleExpResumeData = (event: (EventTarget & HTMLInputElement) | (EventTarget & HTMLTextAreaElement) , id: number) => {
-    
-    const { name, value } = event ;
-    setAllJobs(prevArray => {
-      return prevArray.map(job => {
+  /// funciones para experiencia
+  const handleExpEditData = (
+    event:
+      | (EventTarget & HTMLInputElement)
+      | (EventTarget & HTMLTextAreaElement),
+    id: number
+  ) => {
+    const { name, value } = event;
+    setAllJobs((prevArray) => {
+      return prevArray.map((job) => {
         if (job.id === id) {
-          return { ...job, [name]: value }; 
+          return { ...job, [name]: value };
         }
-        return job; 
+        return job;
       });
     });
-    
   };
 
   const handleClickExp = (expData: IExperienceData) => {
@@ -48,6 +62,34 @@ function App() {
   const handleDeleteJob = (id: number) => {
     setAllJobs((allJobs) => allJobs.filter((job) => job.id !== id));
   };
+
+  /// funciones para educacion
+  const handleEducationEditData = (
+    event:
+      | (EventTarget & HTMLInputElement),
+    id: number
+  ) => {
+    const { name, value } = event;
+    setAllEducation((prevArray) => {
+      return prevArray.map((education) => {
+        if (education.id === id) {
+          return { ...education, [name]: value };
+        }
+        return education;
+      });
+    });
+  };
+
+  const handleAddEducation = (educacionData: IEducationData) => {
+    const currentId = initialEducationId;
+    setAllEducation([...allEducation, { ...educacionData, ["id"]: currentId }]);
+  };
+  const handleDeleteEducation = (id: number) => {
+    setAllEducation((allEducation) => allEducation.filter((education) => education.id !== id));
+  };
+
+
+
   return (
     <>
       <InputsFieldComponent>
@@ -58,11 +100,16 @@ function App() {
         <AllJobsComponent
           allJobsArray={allJobs}
           handleDeleteJob={handleDeleteJob}
-          handleExpResumeData={handleExpResumeData}
+          handleExpResumeData={handleExpEditData}
         ></AllJobsComponent>
         <InputsExperience handleClickExp={handleClickExp}></InputsExperience>
         <hr />
-        <InputEducation></InputEducation>
+        <AllEducationComponent
+        allEducationArray={allEducation}
+        handleDeleteEducation={handleDeleteEducation}
+        handleEducationEditData={handleEducationEditData}
+        />
+        <InputEducation handleAddEducation={handleAddEducation}></InputEducation>
       </InputsFieldComponent>
       <ResumeComponent
         formData={formData}
