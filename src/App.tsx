@@ -2,6 +2,7 @@ import { ChangeEvent, useState } from "react";
 ///interfaces
 import { IDescriptionData } from "./interfaces/inputDesc.interface";
 import { IExperienceData } from "./interfaces/inputExperience.interface";
+import { ISkillsData } from "./interfaces/inputSkills.interface";
 /// componentes para ingresar experiencia
 import InputsExperience from "./components/inputs-components/input-experience-components/inputseExperienceComponent";
 import AllJobsComponent from "./components/inputs-components/input-experience-components/allJobsComponent";
@@ -15,7 +16,10 @@ import InputEducation from "./components/inputs-components/input-education-compo
 import { IEducationData } from "./interfaces/inputEducation.interface";
 import { initialEducationId } from "./components/inputs-components/input-education-components/inputsEducationComponent";
 import AllEducationComponent from "./components/inputs-components/input-education-components/allEducationComponent";
-
+/// inputs seccion skills
+import InputsSkillsComponennt from "./components/inputs-components/input-skills-components/inputsSkillsComponent";
+import AllSkillsComponent from "./components/inputs-components/input-skills-components/allSkillsComponent";
+import { initialSkillId } from "./components/inputs-components/input-skills-components/inputsSkillsComponent";
 function App() {
   const [formData, setFormData] = useState<IDescriptionData>({
     nombre: "",
@@ -30,7 +34,10 @@ function App() {
 
   const [allJobs, setAllJobs] = useState<IExperienceData[]>([]);
   const [allEducation, setAllEducation] = useState<IEducationData[]>([]);
+  const [allSkills, setAllSkills] = useState<ISkillsData[]>([]);
+  const [allLanguages, setAllLanguages] = useState<ISkillsData[]>([]);
 
+  // funciones para descripcion
   const handleData = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -60,7 +67,8 @@ function App() {
   const handleDeleteJob = (id: number) => {
     setAllJobs((allJobs) => allJobs.filter((job) => job.id !== id));
   };
-
+  console.log("todas las skills", allSkills);
+  console.log("todos los idiomas", allLanguages);
   /// funciones para educacion
   const handleEducationEditData = (
     event: EventTarget & HTMLInputElement,
@@ -87,6 +95,53 @@ function App() {
     );
   };
 
+  // funciones para skills y lenguajes
+  const handleAddSkill = (skillData: ISkillsData) => {
+    const currentId = initialSkillId;
+    setAllSkills([...allSkills, { ...skillData, ["id"]: currentId }]);
+  };
+  const handleAddLanguage = (languageData: ISkillsData) => {
+    const currentId = initialSkillId;
+    setAllLanguages([...allLanguages, { ...languageData, ["id"]: currentId }]);
+  };
+
+  const handleDeleteSkill = (id: number) => {
+    setAllSkills((allSkills) => allSkills.filter((skill) => skill.id !== id));
+  };
+  const handleDeleteLanguage = (id: number) => {
+    setAllLanguages((allLanguages) =>
+      allLanguages.filter((language) => language.id !== id)
+    );
+  };
+  const handleSkillEditData = (
+    event: (EventTarget & HTMLInputElement) | (EventTarget & HTMLSelectElement),
+    id: number
+  ) => {
+    const { name, value } = event;
+    setAllSkills((prevArray) => {
+      return prevArray.map((skill) => {
+        if (skill.id === id) {
+          return { ...skill, [name]: value };
+        }
+        return skill;
+      });
+    });
+  };
+  const handleLanguageEditData = (
+    event: (EventTarget & HTMLInputElement) | (EventTarget & HTMLSelectElement),
+    id: number
+  ) => {
+    const { name, value } = event;
+    setAllLanguages((prevArray) => {
+      return prevArray.map((language) => {
+        if (language.id === id) {
+          return { ...language, [name]: value };
+        }
+        return language;
+      });
+    });
+  };
+
   return (
     <>
       <InputsFieldComponent>
@@ -99,16 +154,26 @@ function App() {
           handleDeleteJob={handleDeleteJob}
           handleExpResumeData={handleExpEditData}
         />
-        <InputsExperience handleClickExp={handleClickExp}/>
+        <InputsExperience handleClickExp={handleClickExp} />
         <hr />
         <AllEducationComponent
           allEducationArray={allEducation}
           handleDeleteEducation={handleDeleteEducation}
           handleEducationEditData={handleEducationEditData}
         />
-        <InputEducation
-          handleAddEducation={handleAddEducation}
+        <InputEducation handleAddEducation={handleAddEducation} />
+        <AllSkillsComponent
+          allSkillsArray={allSkills}
+          handleDeleteSkill={handleDeleteSkill}
+          handleEditSkill={handleSkillEditData}
         />
+        <InputsSkillsComponennt handleAddSkill={handleAddSkill} />
+        <AllSkillsComponent
+          allSkillsArray={allLanguages}
+          handleDeleteSkill={handleDeleteLanguage}
+          handleEditSkill={handleLanguageEditData}
+        />
+        <InputsSkillsComponennt handleAddSkill={handleAddLanguage} />
       </InputsFieldComponent>
       <ResumeComponent
         formData={formData}
@@ -120,37 +185,3 @@ function App() {
 }
 
 export default App;
-
-/* 
-// seccion personal
-nombre
-apellido
-cargo
-perfil
-numero
-correo
-sitio web
-
-//Experiencia Laboral
-Empresa
-rol
-cargo
-fecha inicio
-fecha termino
-descripcion
-
-//habilidades
-nombre
-nivel (dropdown)
-
-//educacion
-institucion
-grado
-fecha inicio
-fecha termino
-
-//idiomas
-same as skills
-
-
-*/
