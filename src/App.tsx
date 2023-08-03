@@ -7,6 +7,7 @@ import InputsExperience from "./components/inputs-components/input-experience-co
 import { IExperienceData } from "./interfaces/inputExperience.interface";
 import AllJobsComponent from "./components/inputs-components/input-experience-components/allJobsComponent";
 import { initialExperienceId } from "./components/inputs-components/input-experience-components/inputseExperienceComponent";
+import InputEducation from "./components/inputs-components/input-education-components/inputsEducationComponent";
 
 function App() {
   const [formData, setFormData] = useState<IDescriptionData>({
@@ -60,6 +61,8 @@ function App() {
           handleExpResumeData={handleExpResumeData}
         ></AllJobsComponent>
         <InputsExperience handleClickExp={handleClickExp}></InputsExperience>
+        <hr />
+        <InputEducation></InputEducation>
       </InputsFieldComponent>
       <ResumeComponent
         formData={formData}
