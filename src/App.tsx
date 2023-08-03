@@ -31,8 +31,6 @@ function App() {
   const [allJobs, setAllJobs] = useState<IExperienceData[]>([]);
   const [allEducation, setAllEducation] = useState<IEducationData[]>([]);
 
-  console.log(allEducation);
-
   const handleData = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -65,8 +63,7 @@ function App() {
 
   /// funciones para educacion
   const handleEducationEditData = (
-    event:
-      | (EventTarget & HTMLInputElement),
+    event: EventTarget & HTMLInputElement,
     id: number
   ) => {
     const { name, value } = event;
@@ -85,10 +82,10 @@ function App() {
     setAllEducation([...allEducation, { ...educacionData, ["id"]: currentId }]);
   };
   const handleDeleteEducation = (id: number) => {
-    setAllEducation((allEducation) => allEducation.filter((education) => education.id !== id));
+    setAllEducation((allEducation) =>
+      allEducation.filter((education) => education.id !== id)
+    );
   };
-
-
 
   return (
     <>
@@ -96,24 +93,27 @@ function App() {
         <InputDescriptionComponent
           handleData={handleData}
           formData={formData}
-        ></InputDescriptionComponent>
+        />
         <AllJobsComponent
           allJobsArray={allJobs}
           handleDeleteJob={handleDeleteJob}
           handleExpResumeData={handleExpEditData}
-        ></AllJobsComponent>
-        <InputsExperience handleClickExp={handleClickExp}></InputsExperience>
+        />
+        <InputsExperience handleClickExp={handleClickExp}/>
         <hr />
         <AllEducationComponent
-        allEducationArray={allEducation}
-        handleDeleteEducation={handleDeleteEducation}
-        handleEducationEditData={handleEducationEditData}
+          allEducationArray={allEducation}
+          handleDeleteEducation={handleDeleteEducation}
+          handleEducationEditData={handleEducationEditData}
         />
-        <InputEducation handleAddEducation={handleAddEducation}></InputEducation>
+        <InputEducation
+          handleAddEducation={handleAddEducation}
+        />
       </InputsFieldComponent>
       <ResumeComponent
         formData={formData}
         allJobsArray={allJobs}
+        allEducationArray={allEducation}
       ></ResumeComponent>
     </>
   );

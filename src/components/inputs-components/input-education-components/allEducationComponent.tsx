@@ -4,7 +4,7 @@ interface AllEducationProps {
   allEducationArray: IEducationData[];
   handleDeleteEducation: (id: number) => void;
   handleEducationEditData: (
-    event: EventTarget & HTMLInputElement,
+    event: EventTarget & HTMLInputElement  ,
     id: number
   ) => void;
 }

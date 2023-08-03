@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { IEducationData } from "../../../interfaces/inputEducation.interface";
+import EditEdducationInputs from "./editEducationInputs";
 interface EducationComponentProps {
   education: IEducationData;
   handleDeleteEducation: (id: number) => void;
@@ -13,11 +15,26 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
   handleDeleteEducation,
   handleEducationEditData,
 }) => {
+  const [toggleEdit, setToggleEdit] = useState<boolean>(false);
   return (
     <>
       <p>{education.institucion}</p>
-      <button onClick={()=>handleDeleteEducation(education.id)}>DELETE</button>
-      <button>EDIT</button>
+      <button onClick={() => handleDeleteEducation(education.id)}>
+        DELETE
+      </button>
+      <button
+        onClick={() => {
+          setToggleEdit(!toggleEdit);
+        }}
+      >
+        EDIT
+      </button>
+      {toggleEdit && (
+        <EditEdducationInputs
+          education={education}
+          handleEducationEditData={handleEducationEditData}
+        ></EditEdducationInputs>
+      )}
     </>
   );
 };
