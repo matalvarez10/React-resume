@@ -1,21 +1,26 @@
 import { ChangeEvent, useState } from "react";
+
 ///interfaces
 import { IDescriptionData } from "./interfaces/inputDesc.interface";
 import { IExperienceData } from "./interfaces/inputExperience.interface";
 import { ISkillsData } from "./interfaces/inputSkills.interface";
+
 /// componentes para ingresar experiencia
 import InputsExperience from "./components/inputs-components/input-experience-components/inputseExperienceComponent";
 import AllJobsComponent from "./components/inputs-components/input-experience-components/allJobsComponent";
 import { initialExperienceId } from "./components/inputs-components/input-experience-components/inputseExperienceComponent";
+
 ///inputs para secciones inputs y cv
 import InputsFieldComponent from "./components/inputsFieldComponent";
 import ResumeComponent from "./components/resumeComponent";
 import InputDescriptionComponent from "./components/inputs-components/inputs-description-components/inputsDescriptionComponent";
+
 ///inputs seccion education
 import InputEducation from "./components/inputs-components/input-education-components/inputsEducationComponent";
 import { IEducationData } from "./interfaces/inputEducation.interface";
 import { initialEducationId } from "./components/inputs-components/input-education-components/inputsEducationComponent";
 import AllEducationComponent from "./components/inputs-components/input-education-components/allEducationComponent";
+
 /// inputs seccion skills
 import InputsSkillsComponennt from "./components/inputs-components/input-skills-components/inputsSkillsComponent";
 import AllSkillsComponent from "./components/inputs-components/input-skills-components/allSkillsComponent";
@@ -69,6 +74,7 @@ function App() {
   };
   console.log("todas las skills", allSkills);
   console.log("todos los idiomas", allLanguages);
+
   /// funciones para educacion
   const handleEducationEditData = (
     event: EventTarget & HTMLInputElement,
@@ -95,24 +101,16 @@ function App() {
     );
   };
 
-  // funciones para skills y lenguajes
+  // funciones para skills
   const handleAddSkill = (skillData: ISkillsData) => {
     const currentId = initialSkillId;
     setAllSkills([...allSkills, { ...skillData, ["id"]: currentId }]);
-  };
-  const handleAddLanguage = (languageData: ISkillsData) => {
-    const currentId = initialSkillId;
-    setAllLanguages([...allLanguages, { ...languageData, ["id"]: currentId }]);
   };
 
   const handleDeleteSkill = (id: number) => {
     setAllSkills((allSkills) => allSkills.filter((skill) => skill.id !== id));
   };
-  const handleDeleteLanguage = (id: number) => {
-    setAllLanguages((allLanguages) =>
-      allLanguages.filter((language) => language.id !== id)
-    );
-  };
+
   const handleSkillEditData = (
     event: (EventTarget & HTMLInputElement) | (EventTarget & HTMLSelectElement),
     id: number
@@ -127,6 +125,20 @@ function App() {
       });
     });
   };
+
+  //funciones para idiomas
+  const handleAddLanguage = (languageData: ISkillsData) => {
+    const currentId = initialSkillId;
+    setAllLanguages([...allLanguages, { ...languageData, ["id"]: currentId }]);
+  };
+
+
+  const handleDeleteLanguage = (id: number) => {
+    setAllLanguages((allLanguages) =>
+      allLanguages.filter((language) => language.id !== id)
+    );
+  };
+
   const handleLanguageEditData = (
     event: (EventTarget & HTMLInputElement) | (EventTarget & HTMLSelectElement),
     id: number
@@ -179,6 +191,8 @@ function App() {
         formData={formData}
         allJobsArray={allJobs}
         allEducationArray={allEducation}
+        allSkillsArray={allSkills}
+        allLanguagesArray={allLanguages}
       ></ResumeComponent>
     </>
   );
