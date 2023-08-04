@@ -19,14 +19,17 @@ const AllEducationComponent: React.FC<AllEducationProps> = ({
   }
   return (
     <>
-      {allEducationArray.map((education)=>(
-        <EducationComponent
-        key={education.id}
-        education={education}
-        handleDeleteEducation={handleDeleteEducation}
-        handleEducationEditData={handleEducationEditData}
-        />
-      ))}
+      <h1>All Education</h1>
+      <section>
+        {allEducationArray.map((education)=>(
+          <EducationComponent
+          key={education.id}
+          education={education}
+          handleDeleteEducation={handleDeleteEducation}
+          handleEducationEditData={handleEducationEditData}
+          />
+        ))}
+      </section>
     </>
   );
 };

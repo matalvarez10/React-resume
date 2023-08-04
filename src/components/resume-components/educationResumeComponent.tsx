@@ -4,8 +4,8 @@ const EducationResumeComponent = ({allEducationArray}:{allEducationArray: IEduca
     return ( 
         <>
             {allEducationArray.map(education=>(
-                <div key={education.id}>
-                    <p>{education.institucion}</p>
+                <div key={education.id} className="flex ">
+                    <p className="text-red-500 bg-slate-600 hover:bg-zinc-950 uppercase ">{education.institucion}</p>
                 </div>
             ))}
         </> 

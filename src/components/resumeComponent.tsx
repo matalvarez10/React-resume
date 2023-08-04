@@ -23,7 +23,7 @@ const ResumeComponent: React.FC<ResumeComponentProps> = ({
   allLanguagesArray,
 }) => {
   return (
-    <div className="contenedor">
+    <div className="border-2 border-black w-6/12 h-full">
       <DescriptionComponent formData={formData}></DescriptionComponent>
       <ExperienceComponent allJobsArray={allJobsArray}></ExperienceComponent>
       <EducationResumeComponent allEducationArray={allEducationArray}></EducationResumeComponent>

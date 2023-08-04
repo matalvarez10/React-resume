@@ -47,6 +47,7 @@ function App() {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
+  console.log(formData);
   /// funciones para experiencia
   const handleExpEditData = (
     event:
@@ -72,8 +73,6 @@ function App() {
   const handleDeleteJob = (id: number) => {
     setAllJobs((allJobs) => allJobs.filter((job) => job.id !== id));
   };
-  console.log("todas las skills", allSkills);
-  console.log("todos los idiomas", allLanguages);
 
   /// funciones para educacion
   const handleEducationEditData = (
@@ -155,7 +154,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className=" bg-[#ffffff] h-screen w-screen flex flex-row justify-center items-center">
       <InputsFieldComponent>
         <InputDescriptionComponent
           handleData={handleData}
@@ -194,7 +193,7 @@ function App() {
         allSkillsArray={allSkills}
         allLanguagesArray={allLanguages}
       ></ResumeComponent>
-    </>
+    </div>
   );
 }
 

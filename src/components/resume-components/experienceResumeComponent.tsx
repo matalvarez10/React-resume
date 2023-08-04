@@ -4,7 +4,7 @@ const ExperienceComponent = ({allJobsArray}:{allJobsArray: IExperienceData[]}) =
     return ( 
         <>
             {allJobsArray.map(job=>(
-                <div key={job.id}>
+                <div key={job.id} className="">
                     <p>{job.companyName}</p>
                 </div>
             ))}

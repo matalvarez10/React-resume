@@ -20,22 +20,25 @@ const JobComponent: React.FC<JobComponentProps> = ({
   const [toggleEdit, setToggleEdit] = useState<boolean>(false);
   return (
     <>
-      <p>{job.companyName}</p>
-      <button onClick={() => handleDeleteJob(job.id)}>DELETE</button>
-      <button
-        onClick={() => {
-          setToggleEdit(!toggleEdit);
-        }}
-      >
-        EDIT
-      </button>
-      {toggleEdit && (
-        <EditInputs
-          job={job}
-          handleExpResumeData={handleExpResumeData}
-        ></EditInputs>
-      )}
+      <div className="flex flex-row border border-cyan-900 gap-4">
+        <p>{job.companyName}</p>
+        <button onClick={() => handleDeleteJob(job.id)}>DELETE</button>
+        <button
+          onClick={() => {
+            setToggleEdit(!toggleEdit);
+          }}
+        >
+          EDIT
+        </button>
+      </div>
+        {toggleEdit && (
+          <EditInputs
+            job={job}
+            handleExpResumeData={handleExpResumeData}
+          ></EditInputs>
+        )}
     </>
+
   );
 };
 

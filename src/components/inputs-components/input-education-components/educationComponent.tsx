@@ -17,7 +17,7 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
 }) => {
   const [toggleEdit, setToggleEdit] = useState<boolean>(false);
   return (
-    <>
+    <div className="flex flex-row border border-cyan-900 gap-4">
       <p>{education.institucion}</p>
       <button onClick={() => handleDeleteEducation(education.id)}>
         DELETE
@@ -35,7 +35,7 @@ const EducationComponent: React.FC<EducationComponentProps> = ({
           handleEducationEditData={handleEducationEditData}
         ></EditEdducationInputs>
       )}
-    </>
+    </div>
   );
 };
 

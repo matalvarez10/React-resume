@@ -20,16 +20,19 @@ const AllJobsComponent: React.FC<AllJobsComponentProps> = ({
     return;
   }
   return (
-    <>
-      {allJobsArray.map((job) => (
-        <JobComponent
-          key={job.id}
-          job={job}
-          handleDeleteJob={handleDeleteJob}
-          handleExpResumeData={handleExpResumeData}
-        ></JobComponent>
-      ))}
-    </>
+    <div>
+      <h1>All Jobs</h1>
+      <section>
+        {allJobsArray.map((job) => (
+          <JobComponent
+            key={job.id}
+            job={job}
+            handleDeleteJob={handleDeleteJob}
+            handleExpResumeData={handleExpResumeData}
+          ></JobComponent>
+        ))}
+      </section>
+    </div>
   );
 };
 

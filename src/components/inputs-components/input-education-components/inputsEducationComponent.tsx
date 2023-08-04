@@ -1,5 +1,7 @@
 import { IEducationData } from "../../../interfaces/inputEducation.interface";
 import { useState, ChangeEvent } from "react";
+import CustomInputComponent from "../../style-components/mainInputComponent";
+import TextHeaderComponent from "../../style-components/textHeaderComponent";
 
 interface InputEducationProps {
   handleAddEducation: (educacionData: IEducationData) => void;
@@ -16,41 +18,53 @@ const InputEducation: React.FC<InputEducationProps> = ({
     setEducationData({ ...educationData, [name]: value });
   };
   return (
-    <form>
-      <input
-        type="text"
-        name="courseStudied"
-        value={educationData.courseStudied}
-        onChange={handleEducationData}
-      />
-      <input
-        type="text"
-        name="institucion"
-        value={educationData.institucion}
-        onChange={handleEducationData}
-      />
-      <input
-        type="date"
-        name="fechaInicio"
-        value={educationData.fechaInicio}
-        onChange={handleEducationData}
-      />
-      <input
-        type="date"
-        name="fechaTermino"
-        value={educationData.fechaTermino}
-        onChange={handleEducationData}
-      />
-      <button
-        type="button"
-        onClick={() => {
-          initialEducationId++;
-          handleAddEducation(educationData);
-        }}
-      >
-        SUBMIT
-      </button>
-    </form>
+    <>
+      <TextHeaderComponent title="Courses/Education"/>
+      <form className="grid grid-cols-2 gap-4"> 
+        <CustomInputComponent
+          placeholder=""
+          labelText="Course Studied"
+          type="text"
+          name="courseStudied"
+          value={educationData.courseStudied}
+          onChange={handleEducationData}
+        />
+        <CustomInputComponent
+          placeholder=""
+          labelText="Educational Institution"
+          type="text"
+          name="institucion"
+          value={educationData.institucion}
+          onChange={handleEducationData}
+        />
+        <CustomInputComponent
+          placeholder=""
+          labelText="Fecha Inicio"
+          type="date"
+          name="fechaInicio"
+          value={educationData.fechaInicio}
+          onChange={handleEducationData}
+        />
+        <CustomInputComponent
+          placeholder=""
+          labelText="Fecha Termino"
+          type="date"
+          name="fechaTermino"
+          value={educationData.fechaTermino}
+          onChange={handleEducationData}
+        />
+        <button
+          className="border-2 border-red-950"
+          type="button"
+          onClick={() => {
+            initialEducationId++;
+            handleAddEducation(educationData);
+          }}
+        >
+          SUBMIT
+        </button>
+      </form>
+    </>
   );
 };
 
