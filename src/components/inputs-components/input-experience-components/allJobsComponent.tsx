@@ -21,8 +21,8 @@ const AllJobsComponent: React.FC<AllJobsComponentProps> = ({
   }
   return (
     <div>
-      <h1>All Jobs</h1>
-      <section>
+      <h3>Added Jobs</h3>
+      <section className="flex flex-col gap-3">
         {allJobsArray.map((job) => (
           <JobComponent
             key={job.id}

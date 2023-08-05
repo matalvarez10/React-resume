@@ -160,13 +160,14 @@ function App() {
           handleData={handleData}
           formData={formData}
         />
+
+        <InputsExperience handleClickExp={handleClickExp} />
         <AllJobsComponent
           allJobsArray={allJobs}
           handleDeleteJob={handleDeleteJob}
           handleExpResumeData={handleExpEditData}
         />
-        <InputsExperience handleClickExp={handleClickExp} />
-        <hr />
+        <hr className=" h-1 bg-blue-700 w-full m-2" />
         <AllEducationComponent
           allEducationArray={allEducation}
           handleDeleteEducation={handleDeleteEducation}

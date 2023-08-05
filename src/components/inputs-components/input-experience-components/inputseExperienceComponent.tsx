@@ -3,6 +3,7 @@ import { IExperienceData } from "../../../interfaces/inputExperience.interface";
 import { ChangeEvent, useState } from "react";
 import CustomInputComponent from "../../style-components/mainInputComponent";
 import TextHeaderComponent from "../../style-components/textHeaderComponent";
+import CustomButtonComponent from "../../style-components/customButtonComponent";
 
 const InputsExperience: React.FC<InputExperienceData> = ({
   handleClickExp,
@@ -79,6 +80,7 @@ const InputsExperience: React.FC<InputExperienceData> = ({
         >
           SUBMIT
         </button>
+        <CustomButtonComponent/>
       </form>
     </section>
   );
