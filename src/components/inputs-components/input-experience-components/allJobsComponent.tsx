@@ -1,14 +1,16 @@
 import { IExperienceData } from "../../../interfaces/inputExperience.interface";
+import { IEducationData } from "../../../interfaces/inputEducation.interface";
+
+export type EditDataHandler = (
+  | ((event: EventTarget & HTMLInputElement, id: number) => void)
+  | ((event: EventTarget & HTMLInputElement | EventTarget & HTMLTextAreaElement, id: number) => void)
+);
+
 import JobComponent from "./jobComponent";
 interface AllJobsComponentProps {
-  allJobsArray: IExperienceData[] ;
+  allJobsArray: (IExperienceData | IEducationData)[];
   handleDeleteJob: (id: number) => void;
-  handleExpResumeData: (
-    event:
-      | (EventTarget & HTMLInputElement)
-      | (EventTarget & HTMLTextAreaElement),
-    id: number
-  ) => void;
+  handleExpResumeData: EditDataHandler;
 }
 
 const AllJobsComponent: React.FC<AllJobsComponentProps> = ({
@@ -29,7 +31,7 @@ const AllJobsComponent: React.FC<AllJobsComponentProps> = ({
             job={job}
             handleDeleteJob={handleDeleteJob}
             handleExpResumeData={handleExpResumeData}
-          ></JobComponent>
+          />
         ))}
       </section>
     </div>

@@ -9,7 +9,6 @@ import { ISkillsData } from "./interfaces/inputSkills.interface";
 import InputsExperience from "./components/inputs-components/input-experience-components/inputseExperienceComponent";
 import AllJobsComponent from "./components/inputs-components/input-experience-components/allJobsComponent";
 import { initialExperienceId } from "./components/inputs-components/input-experience-components/inputseExperienceComponent";
-
 ///inputs para secciones inputs y cv
 import InputsFieldComponent from "./components/inputsFieldComponent";
 import ResumeComponent from "./components/resumeComponent";
@@ -19,7 +18,6 @@ import InputDescriptionComponent from "./components/inputs-components/inputs-des
 import InputEducation from "./components/inputs-components/input-education-components/inputsEducationComponent";
 import { IEducationData } from "./interfaces/inputEducation.interface";
 import { initialEducationId } from "./components/inputs-components/input-education-components/inputsEducationComponent";
-import AllEducationComponent from "./components/inputs-components/input-education-components/allEducationComponent";
 
 /// inputs seccion skills
 import InputsSkillsComponennt from "./components/inputs-components/input-skills-components/inputsSkillsComponent";
@@ -51,7 +49,7 @@ function App() {
   /// funciones para experiencia
   const handleExpEditData = (
     event:
-      | (EventTarget & HTMLInputElement)
+      (EventTarget & HTMLInputElement)
       | (EventTarget & HTMLTextAreaElement),
     id: number
   ) => {
@@ -79,7 +77,7 @@ function App() {
     event: EventTarget & HTMLInputElement,
     id: number
   ) => {
-    const { name, value } = event;
+    const { name, value } = event as HTMLInputElement;
     setAllEducation((prevArray) => {
       return prevArray.map((education) => {
         if (education.id === id) {
@@ -168,22 +166,22 @@ function App() {
           handleExpResumeData={handleExpEditData}
         />
         <hr className=" h-1 bg-blue-700 w-full m-2" />
-        <AllEducationComponent
-          allEducationArray={allEducation}
-          handleDeleteEducation={handleDeleteEducation}
-          handleEducationEditData={handleEducationEditData}
+        <AllJobsComponent
+          allJobsArray={allEducation}
+          handleDeleteJob={handleDeleteEducation}
+          handleExpResumeData={handleEducationEditData}
         />
         <InputEducation handleAddEducation={handleAddEducation} />
-        <AllSkillsComponent
-          allSkillsArray={allSkills}
-          handleDeleteSkill={handleDeleteSkill}
-          handleEditSkill={handleSkillEditData}
+        <AllJobsComponent
+          allJobsArray={allSkills}
+          handleDeleteJob={handleDeleteSkill}
+          handleExpResumeData={handleSkillEditData}
         />
         <InputsSkillsComponennt handleAddSkill={handleAddSkill} />
-        <AllSkillsComponent
-          allSkillsArray={allLanguages}
-          handleDeleteSkill={handleDeleteLanguage}
-          handleEditSkill={handleLanguageEditData}
+        <AllJobsComponent
+          allJobsArray={allLanguages}
+          handleDeleteJob={handleDeleteLanguage}
+          handleExpResumeData={handleLanguageEditData}
         />
         <InputsSkillsComponennt handleAddSkill={handleAddLanguage} />
       </InputsFieldComponent>

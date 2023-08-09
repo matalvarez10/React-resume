@@ -1,20 +1,22 @@
 import { IExperienceData } from "../../../interfaces/inputExperience.interface";
 import CustomInputComponent from "../../style-components/mainInputComponent";
-
-interface EditInputsProps {
-  job: IExperienceData;
-  handleExpResumeData: (
-    event:
-      | (EventTarget & HTMLInputElement)
-      | (EventTarget & HTMLTextAreaElement),
-    id: number
-  ) => void;
+import { EditDataHandler } from "./allJobsComponent";
+export interface EditInputsProps {
+  job: IExperienceData  ;
+  handleExpResumeData:EditDataHandler;
 }
-
 const EditInputs: React.FC<EditInputsProps> = ({
   job,
   handleExpResumeData,
 }) => {
+
+  const handleChange = (
+    event: EventTarget & (HTMLInputElement | HTMLTextAreaElement),
+    id: number
+  ) => {
+    handleExpResumeData(event as EventTarget & HTMLInputElement, id);
+  };
+  
   return (
     <>
       <CustomInputComponent
@@ -25,7 +27,7 @@ const EditInputs: React.FC<EditInputsProps> = ({
         value={job.posicion}
         onChange={(event) => {
           const value = event.target;
-          handleExpResumeData(value, job.id);
+          handleChange(value, job.id);
         }}
       />
       <CustomInputComponent
@@ -36,7 +38,7 @@ const EditInputs: React.FC<EditInputsProps> = ({
         value={job.companyName}
         onChange={(event) => {
           const value = event.target;
-          handleExpResumeData(value, job.id);
+          handleChange(value, job.id);
         }}
       />
       <CustomInputComponent
@@ -47,7 +49,7 @@ const EditInputs: React.FC<EditInputsProps> = ({
         value={job.lugar}
         onChange={(event) => {
           const value = event.target;
-          handleExpResumeData(value, job.id);
+          handleChange(value, job.id);
         }}
       />
       <CustomInputComponent
@@ -58,7 +60,7 @@ const EditInputs: React.FC<EditInputsProps> = ({
         value={job.fechaInicio}
         onChange={(event) => {
           const value = event.target;
-          handleExpResumeData(value, job.id);
+          handleChange(value, job.id);
         }}
       />
       <CustomInputComponent
@@ -69,15 +71,15 @@ const EditInputs: React.FC<EditInputsProps> = ({
         value={job.fechaTermino}
         onChange={(event) => {
           const value = event.target;
-          handleExpResumeData(value, job.id);
+          handleChange(value, job.id);
         }}
       />
       <textarea
         name="description"
         value={job.description}
         onChange={(event) => {
-          const value = event.target;
-          handleExpResumeData(value, job.id);
+          const value = event.target ;
+          handleChange(value , job.id);
         }}
       />
     </>
