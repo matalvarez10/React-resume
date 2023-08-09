@@ -1,5 +1,5 @@
 import { ISkillsData } from "../../../interfaces/inputSkills.interface";
-import { EditDataHandler } from "../all-inputs-components/allJobsComponent";
+import { EditDataHandler } from "../all-inputs-components/listInputsComponent";
 interface EditSkillsInterface {
   skill: ISkillsData;
   handleEditSkill: EditDataHandler;

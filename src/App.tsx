@@ -6,8 +6,8 @@ import { IExperienceData } from "./interfaces/inputExperience.interface";
 import { ISkillsData } from "./interfaces/inputSkills.interface";
 
 /// componentes para ingresar experiencia
-import InputsExperience from "./components/inputs-components/input-experience-components/inputseExperienceComponent";
-import AllJobsComponent from "./components/inputs-components/all-inputs-components/allJobsComponent";
+import InputsExperienceComponent from "./components/inputs-components/input-experience-components/inputseExperienceComponent";
+import ListInputsComponent from "./components/inputs-components/all-inputs-components/listInputsComponent";
 import { initialExperienceId } from "./components/inputs-components/input-experience-components/inputseExperienceComponent";
 ///inputs para secciones inputs y cv
 import InputsFieldComponent from "./components/inputsFieldComponent";
@@ -15,7 +15,7 @@ import ResumeComponent from "./components/resumeComponent";
 import InputDescriptionComponent from "./components/inputs-components/inputs-description-components/inputsDescriptionComponent";
 
 ///inputs seccion education
-import InputEducation from "./components/inputs-components/input-education-components/inputsEducationComponent";
+import InputEducationComponent from "./components/inputs-components/input-education-components/inputsEducationComponent";
 import { IEducationData } from "./interfaces/inputEducation.interface";
 import { initialEducationId } from "./components/inputs-components/input-education-components/inputsEducationComponent";
 
@@ -159,29 +159,29 @@ function App() {
           formData={formData}
         />
 
-        <InputsExperience handleClickExp={handleClickExp} />
-        <AllJobsComponent
-          allJobsArray={allJobs}
-          handleDeleteJob={handleDeleteJob}
-          handleExpResumeData={handleExpEditData}
+        <InputsExperienceComponent handleClickExp={handleClickExp} />
+        <ListInputsComponent
+          allElementsArray={allJobs}
+          handleDeleteElement={handleDeleteJob}
+          handleEditElement={handleExpEditData}
         />
         <hr className=" h-1 bg-blue-700 w-full m-2" />
-        <AllJobsComponent
-          allJobsArray={allEducation}
-          handleDeleteJob={handleDeleteEducation}
-          handleExpResumeData={handleEducationEditData}
+        <ListInputsComponent
+          allElementsArray={allEducation}
+          handleDeleteElement={handleDeleteEducation}
+          handleEditElement={handleEducationEditData}
         />
-        <InputEducation handleAddEducation={handleAddEducation} />
-        <AllJobsComponent
-          allJobsArray={allSkills}
-          handleDeleteJob={handleDeleteSkill}
-          handleExpResumeData={handleSkillEditData}
+        <InputEducationComponent handleAddEducation={handleAddEducation} />
+        <ListInputsComponent
+          allElementsArray={allSkills}
+          handleDeleteElement={handleDeleteSkill}
+          handleEditElement={handleSkillEditData}
         />
         <InputsSkillsComponennt handleAddSkill={handleAddSkill} />
-        <AllJobsComponent
-          allJobsArray={allLanguages}
-          handleDeleteJob={handleDeleteLanguage}
-          handleExpResumeData={handleLanguageEditData}
+        <ListInputsComponent
+          allElementsArray={allLanguages}
+          handleDeleteElement={handleDeleteLanguage}
+          handleEditElement={handleLanguageEditData}
         />
         <InputsSkillsComponennt handleAddSkill={handleAddLanguage} />
       </InputsFieldComponent>

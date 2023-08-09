@@ -6,7 +6,7 @@ import TextHeaderComponent from "../../style-components/textHeaderComponent";
 interface InputEducationProps {
   handleAddEducation: (educacionData: IEducationData) => void;
 }
-const InputEducation: React.FC<InputEducationProps> = ({
+const InputEducationComponent: React.FC<InputEducationProps> = ({
   handleAddEducation,
 }) => {
   const [educationData, setEducationData] = useState<IEducationData>(
@@ -76,4 +76,4 @@ let initialEducationValues = {
   fechaTermino: "",
 };
 export let initialEducationId = 0;
-export default InputEducation;
+export default InputEducationComponent;

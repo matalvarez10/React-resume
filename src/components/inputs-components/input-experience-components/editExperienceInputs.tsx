@@ -1,11 +1,11 @@
 import { IExperienceData } from "../../../interfaces/inputExperience.interface";
 import CustomInputComponent from "../../style-components/mainInputComponent";
-import { EditDataHandler } from "../all-inputs-components/allJobsComponent";
+import { EditDataHandler } from "../all-inputs-components/listInputsComponent";
 export interface EditInputsProps {
   job: IExperienceData  ;
   handleExpResumeData:EditDataHandler;
 }
-const EditInputs: React.FC<EditInputsProps> = ({
+const EditExperienceInputs: React.FC<EditInputsProps> = ({
   job,
   handleExpResumeData,
 }) => {
@@ -86,4 +86,4 @@ const EditInputs: React.FC<EditInputsProps> = ({
   );
 };
 
-export default EditInputs;
+export default EditExperienceInputs;

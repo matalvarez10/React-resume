@@ -1,27 +1,27 @@
 import { IExperienceData } from "../../../interfaces/inputExperience.interface";
 import { IEducationData } from "../../../interfaces/inputEducation.interface";
-import EditInputs from "../input-experience-components/editInputsComponent";
+import EditExperienceInputs from "../input-experience-components/editExperienceInputs";
 import EditEdducationInputs from "../input-education-components/editEducationInputs";
-import { EditDataHandler } from "./allJobsComponent";
+import { EditDataHandler } from "./listInputsComponent";
 import EditSkillsInputs from "../input-skills-components/editSkillInputs";
 import { ISkillsData } from "../../../interfaces/inputSkills.interface";
 export interface EditInputsProps {
-  job: IExperienceData | IEducationData | ISkillsData ;
-  handleExpResumeData:EditDataHandler;
+  element: IExperienceData | IEducationData | ISkillsData ;
+  handleEditData:EditDataHandler;
 }
 
 const EditAllInputs: React.FC<EditInputsProps> = ({
-  job,
-  handleExpResumeData,
+  element: element,
+  handleEditData: handleEditData,
 }) => {
-    const isExperienceData = "posicion" in job;
-    const isEducationData = "institucion" in job;
-    const isSkillsData = "skillName" in job;
+    const isExperienceData = "posicion" in element;
+    const isEducationData = "institucion" in element;
+    const isSkillsData = "skillName" in element;
   return (
     <>
-    {isExperienceData && <EditInputs job={job} handleExpResumeData={handleExpResumeData}/> }
-    {isEducationData && <EditEdducationInputs education={job} handleEducationEditData={handleExpResumeData} /> }
-    {isSkillsData && <EditSkillsInputs handleEditSkill={handleExpResumeData} skill={job}/>}
+    {isExperienceData && <EditExperienceInputs job={element} handleExpResumeData={handleEditData}/> }
+    {isEducationData && <EditEdducationInputs education={element} handleEducationEditData={handleEditData} /> }
+    {isSkillsData && <EditSkillsInputs skill={element} handleEditSkill={handleEditData} />}
     </>
   );
 };

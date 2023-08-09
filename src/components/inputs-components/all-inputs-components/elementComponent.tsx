@@ -1,21 +1,21 @@
 import { IExperienceData } from "../../../interfaces/inputExperience.interface";
 import { IEducationData } from "../../../interfaces/inputEducation.interface";
 import { useState } from "react";
-import { EditDataHandler } from "./allJobsComponent";
+import { EditDataHandler } from "./listInputsComponent";
 import { FaTrashCan, FaFilePen } from "react-icons/fa6";
-import EditAllInputs from "./allEditInputs";
+import EditAllInputs from "./handleAllEditInputs";
 import { ISkillsData } from "../../../interfaces/inputSkills.interface";
 
 interface JobComponentProps {
-  job: IExperienceData | IEducationData |ISkillsData;
-  handleDeleteJob: (id: number) => void;
-  handleExpResumeData:EditDataHandler;
+  element: IExperienceData | IEducationData |ISkillsData;
+  handleDeleteElement: (id: number) => void;
+  handleEditElement:EditDataHandler;
 }
 
-const JobComponent: React.FC<JobComponentProps> = ({
-  job,
-  handleDeleteJob,
-  handleExpResumeData,
+const ElementComponent: React.FC<JobComponentProps> = ({
+  element: element,
+  handleDeleteElement: handleDeleteJob,
+  handleEditElement: handleExpResumeData,
 }) => {
   const [toggleEdit, setToggleEdit] = useState<boolean>(false);
   return (
@@ -23,7 +23,7 @@ const JobComponent: React.FC<JobComponentProps> = ({
       <div className="m-auto flex flex-row justify-between gap-5 w-full border rounded border-blue-600 text-blue-600 p-2 hover:bg-blue-700 hover:text-white">
         <p>TITULO VA ACA</p>
         <div className="flex flex-row gap-5">
-          <button onClick={() => handleDeleteJob(job.id)}>
+          <button onClick={() => handleDeleteJob(element.id)}>
             <FaTrashCan />
           </button>
           <button
@@ -36,10 +36,10 @@ const JobComponent: React.FC<JobComponentProps> = ({
         </div>
       </div>
       {toggleEdit && (
-        <EditAllInputs job={job} handleExpResumeData={handleExpResumeData} />
+        <EditAllInputs element={element} handleEditData={handleExpResumeData} />
       )}
     </>
   );
 };
 
-export default JobComponent;
+export default ElementComponent;

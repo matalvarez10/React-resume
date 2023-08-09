@@ -5,7 +5,7 @@ import CustomInputComponent from "../../style-components/mainInputComponent";
 import TextHeaderComponent from "../../style-components/textHeaderComponent";
 import CustomButtonComponent from "../../style-components/customButtonComponent";
 
-const InputsExperience: React.FC<InputExperienceData> = ({
+const InputsExperienceComponent: React.FC<InputExperienceData> = ({
   handleClickExp,
 }) => {
   const [expData, setExpData] = useState<IExperienceData>(initialValues);
@@ -96,4 +96,4 @@ let initialValues = {
   description: "",
 };
 export let initialExperienceId = 0;
-export default InputsExperience;
+export default InputsExperienceComponent;
