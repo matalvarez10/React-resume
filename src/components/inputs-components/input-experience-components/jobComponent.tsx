@@ -4,9 +4,10 @@ import { useState } from "react";
 import { EditDataHandler } from "./allJobsComponent";
 import { FaTrashCan, FaFilePen } from "react-icons/fa6";
 import EditAllInputs from "../../allEditInputs";
+import { ISkillsData } from "../../../interfaces/inputSkills.interface";
 
 interface JobComponentProps {
-  job: IExperienceData | IEducationData;
+  job: IExperienceData | IEducationData |ISkillsData;
   handleDeleteJob: (id: number) => void;
   handleExpResumeData:EditDataHandler;
 }

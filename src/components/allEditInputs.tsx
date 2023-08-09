@@ -4,8 +4,9 @@ import EditInputs from "./inputs-components/input-experience-components/editInpu
 import EditEdducationInputs from "./inputs-components/input-education-components/editEducationInputs";
 import { EditDataHandler } from "./inputs-components/input-experience-components/allJobsComponent";
 import EditSkillsInputs from "./inputs-components/input-skills-components/editSkillInputs";
+import { ISkillsData } from "../interfaces/inputSkills.interface";
 export interface EditInputsProps {
-  job: IExperienceData | IEducationData ;
+  job: IExperienceData | IEducationData | ISkillsData ;
   handleExpResumeData:EditDataHandler;
 }
 

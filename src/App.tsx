@@ -21,8 +21,8 @@ import { initialEducationId } from "./components/inputs-components/input-educati
 
 /// inputs seccion skills
 import InputsSkillsComponennt from "./components/inputs-components/input-skills-components/inputsSkillsComponent";
-import AllSkillsComponent from "./components/inputs-components/input-skills-components/allSkillsComponent";
 import { initialSkillId } from "./components/inputs-components/input-skills-components/inputsSkillsComponent";
+
 function App() {
   const [formData, setFormData] = useState<IDescriptionData>({
     nombre: "",

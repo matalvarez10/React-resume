@@ -1,14 +1,17 @@
 import { IExperienceData } from "../../../interfaces/inputExperience.interface";
 import { IEducationData } from "../../../interfaces/inputEducation.interface";
+import { ISkillsData } from "../../../interfaces/inputSkills.interface";
+import JobComponent from "./jobComponent";
 
 export type EditDataHandler = (
   | ((event: EventTarget & HTMLInputElement, id: number) => void)
   | ((event: EventTarget & HTMLInputElement | EventTarget & HTMLTextAreaElement, id: number) => void)
+  | ((event: (EventTarget & HTMLInputElement) | (EventTarget & HTMLSelectElement), id: number) => void)
 );
 
-import JobComponent from "./jobComponent";
+
 interface AllJobsComponentProps {
-  allJobsArray: (IExperienceData | IEducationData)[];
+  allJobsArray: (IExperienceData | IEducationData | ISkillsData)[];
   handleDeleteJob: (id: number) => void;
   handleExpResumeData: EditDataHandler;
 }

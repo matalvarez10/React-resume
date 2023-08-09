@@ -1,31 +1,38 @@
 import { ISkillsData } from "../../../interfaces/inputSkills.interface";
+import { EditDataHandler } from "../input-experience-components/allJobsComponent";
 interface EditSkillsInterface {
   skill: ISkillsData;
-  handleEditSkill: (event: (EventTarget & HTMLInputElement) | (EventTarget & HTMLSelectElement), id: number) => void;
+  handleEditSkill: EditDataHandler;
 }
 
 const EditSkillsInputs: React.FC<EditSkillsInterface> = ({
   skill,
   handleEditSkill,
 }) => {
+  const handleChange = (
+    event: EventTarget & (HTMLInputElement | HTMLSelectElement),
+    id: number
+  ) => {
+    handleEditSkill(event as EventTarget & HTMLInputElement, id);
+  };
   return (
     <>
       <input
         type="text"
         name="skillName"
-                onChange={(event) => {
+        onChange={(event) => {
           const value = event.target;
-          handleEditSkill(value, skill.id);
+          handleChange(value, skill.id);
         }}
-        value={skill.skillName} 
+        value={skill.skillName}
       />
       <select
         name="skillLevel"
-                onChange={(event) => {
+        onChange={(event) => {
           const value = event.target;
-          handleEditSkill(value, skill.id);
+          handleChange(value, skill.id);
         }}
-        value={skill.skillLevel} 
+        value={skill.skillLevel}
       >
         <option value="" disabled>
           Select an Option
