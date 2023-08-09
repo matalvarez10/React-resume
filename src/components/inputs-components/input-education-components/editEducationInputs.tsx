@@ -1,5 +1,5 @@
 import { IEducationData } from "../../../interfaces/inputEducation.interface";
-
+import CustomInputComponent from "../../style-components/mainInputComponent";
 interface EditInputsProps {
   education: IEducationData;
   handleEducationEditData: (
@@ -13,8 +13,10 @@ const EditEdducationInputs: React.FC<EditInputsProps> = ({
   handleEducationEditData,
 }) => {
   return (
-    <>
-      <input
+    <div className="grid grid-cols-2 gap-4" >
+      <CustomInputComponent
+        labelText="Edit Course Studied"
+        placeholder=""
         type="text"
         name="courseStudied"
         value={education.courseStudied}
@@ -23,7 +25,9 @@ const EditEdducationInputs: React.FC<EditInputsProps> = ({
           handleEducationEditData(value, education.id);
         }}
       />
-      <input
+      <CustomInputComponent
+        labelText="Edit Educational Institution"
+        placeholder=""
         type="text"
         name="institucion"
         value={education.institucion}
@@ -32,7 +36,9 @@ const EditEdducationInputs: React.FC<EditInputsProps> = ({
           handleEducationEditData(value, education.id);
         }}
       />
-      <input
+      <CustomInputComponent
+        labelText="Edit Start Date"
+        placeholder=""
         type="date"
         name="fechaInicio"
         value={education.fechaInicio}
@@ -41,7 +47,9 @@ const EditEdducationInputs: React.FC<EditInputsProps> = ({
           handleEducationEditData(value, education.id);
         }}
       />
-      <input
+      <CustomInputComponent
+        labelText="Edit End Date"
+        placeholder=""
         type="date"
         name="fechaTermino"
         value={education.fechaTermino}
@@ -50,7 +58,7 @@ const EditEdducationInputs: React.FC<EditInputsProps> = ({
           handleEducationEditData(value, education.id);
         }}
       />
-    </>
+    </div>
   );
 };
 

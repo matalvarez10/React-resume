@@ -20,7 +20,7 @@ const EditExperienceInputs: React.FC<EditInputsProps> = ({
   return (
     <>
       <CustomInputComponent
-        labelText="HOLA"
+        labelText="Edit Role"
         placeholder=""
         type="text"
         name="posicion"
@@ -31,7 +31,7 @@ const EditExperienceInputs: React.FC<EditInputsProps> = ({
         }}
       />
       <CustomInputComponent
-        labelText="HOLA"
+        labelText="Edit Company Name"
         placeholder=""
         type="text"
         name="companyName"
@@ -42,7 +42,7 @@ const EditExperienceInputs: React.FC<EditInputsProps> = ({
         }}
       />
       <CustomInputComponent
-        labelText="HOLA"
+        labelText="Edit Location"
         placeholder=""
         type="text"
         name="lugar"
@@ -53,7 +53,7 @@ const EditExperienceInputs: React.FC<EditInputsProps> = ({
         }}
       />
       <CustomInputComponent
-        labelText="HOLA"
+        labelText="Edit Start Date "
         placeholder=""
         type="date"
         name="fechaInicio"
@@ -64,7 +64,7 @@ const EditExperienceInputs: React.FC<EditInputsProps> = ({
         }}
       />
       <CustomInputComponent
-        labelText="HOLA"
+        labelText="Edit End Date"
         placeholder=""
         type="date"
         name="fechaTermino"
@@ -74,14 +74,18 @@ const EditExperienceInputs: React.FC<EditInputsProps> = ({
           handleChange(value, job.id);
         }}
       />
-      <textarea
-        name="description"
-        value={job.description}
-        onChange={(event) => {
-          const value = event.target ;
-          handleChange(value , job.id);
-        }}
-      />
+      <label htmlFor="description" className="font-lato font-light">
+        <p>Edit Job Description</p>
+        <textarea
+        className="textarea-custom"
+          name="description"
+          value={job.description}
+          onChange={(event) => {
+            const value = event.target ;
+            handleChange(value , job.id);
+          }}
+        />
+      </label>
     </>
   );
 };

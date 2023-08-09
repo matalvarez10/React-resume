@@ -2,11 +2,14 @@ import { useState, ChangeEvent } from "react";
 import { ISkillsData } from "../../../interfaces/inputSkills.interface";
 import TextHeaderComponent from "../../style-components/textHeaderComponent";
 import CustomInputComponent from "../../style-components/mainInputComponent";
+import CustomSelectComponent from "../../style-components/selectComponent";
 
 const InputsSkillsComponent = ({
   handleAddSkill,
+  title,
 }: {
   handleAddSkill: (skillData: ISkillsData) => void;
+  title: string;
 }) => {
   const [skillsData, setSkillsData] =
     useState<ISkillsData>(initialSkillsValues);
@@ -20,34 +23,23 @@ const InputsSkillsComponent = ({
 
   return (
     <>
-      <TextHeaderComponent title="Skills" />
-      <form >
+      <TextHeaderComponent title={title} />
+      <form>
         <div className="grid grid-cols-2 gap-4">
           <CustomInputComponent
             placeholder=""
-            labelText="Add a Skill"
+            labelText={`Add a ${title.slice(0, -1)}`}
             type="text"
             name="skillName"
             onChange={handleSkillDataInput}
             value={skillsData.skillName}
           />
-          <label className="font-lato font-light">
-            <p>Profficiency level </p>
-            <select
-            className="resize-none appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              name="skillLevel"
-              onChange={handleSkillDataInput}
-              value={skillsData.skillLevel}
-            >
-              <option value="" disabled>
-                Select an Option
-              </option>
-              <option value="Beginner">Beginner</option>
-              <option value="Intermediate">Intermediate</option>
-              <option value="Advanced">Advanced</option>
-              <option value="Expert">Expert</option>
-            </select>
-          </label>
+          <CustomSelectComponent
+            labelText="Profficiency level"
+            name="skillLevel"
+            onChange={handleSkillDataInput}
+            value={skillsData.skillLevel}
+          />
         </div>
         <button
           type="button"
@@ -57,7 +49,7 @@ const InputsSkillsComponent = ({
             handleAddSkill(skillsData);
           }}
         >
-          SUBMIT
+          ADD TO RESUME
         </button>
       </form>
     </>

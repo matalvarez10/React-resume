@@ -1,5 +1,7 @@
 import { ISkillsData } from "../../../interfaces/inputSkills.interface";
 import { EditDataHandler } from "../all-inputs-components/listInputsComponent";
+import CustomInputComponent from "../../style-components/mainInputComponent";
+import CustomSelectComponent from "../../style-components/selectComponent";
 interface EditSkillsInterface {
   skill: ISkillsData;
   handleEditSkill: EditDataHandler;
@@ -16,8 +18,10 @@ const EditSkillsInputs: React.FC<EditSkillsInterface> = ({
     handleEditSkill(event as EventTarget & HTMLInputElement, id);
   };
   return (
-    <>
-      <input
+    <div className="grid grid-cols-2 gap-4 ">
+      <CustomInputComponent
+        labelText="Edit Skill"
+        placeholder=""
         type="text"
         name="skillName"
         onChange={(event) => {
@@ -26,23 +30,16 @@ const EditSkillsInputs: React.FC<EditSkillsInterface> = ({
         }}
         value={skill.skillName}
       />
-      <select
+      <CustomSelectComponent
+        labelText="Edit proficiency level"
         name="skillLevel"
         onChange={(event) => {
           const value = event.target;
           handleChange(value, skill.id);
         }}
         value={skill.skillLevel}
-      >
-        <option value="" disabled>
-          Select an Option
-        </option>
-        <option value="Beginner">Beginner</option>
-        <option value="Intermediate">Intermediate</option>
-        <option value="Advanced">Advanced</option>
-        <option value="Expert">Expert</option>
-      </select>
-    </>
+      />
+    </div>
   );
 };
 

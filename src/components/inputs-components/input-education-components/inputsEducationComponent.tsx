@@ -61,7 +61,7 @@ const InputEducationComponent: React.FC<InputEducationProps> = ({
             handleAddEducation(educationData);
           }}
         >
-          SUBMIT
+          ADD TO RESUME
         </button>
       </form>
     </>

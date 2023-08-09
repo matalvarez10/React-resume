@@ -30,7 +30,7 @@ const ListInputsComponent: React.FC<AllListComponentProps> = ({
 
   return (
     <div>
-      <h3>Added {listTitle}</h3>
+      <h1 className="font-raleway font-bold text-blue-500 text-center">Added {listTitle}</h1>
       <section className="flex flex-col gap-3">
         {allElementsArray.map((element) => (
           <ElementComponent

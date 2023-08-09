@@ -8,7 +8,7 @@ const InputDescriptionComponent: React.FC<InputDescriptionProps> = ({
   handleTextAreaInput,
 }) => {
   return (
-    <section className="flex flex-col gap-5 p-0 ">
+    <section className="flex flex-col p-0 ">
       <TextHeaderComponent title="Datos Personales" />
       <div className="grid grid-cols-2 gap-4">
         <CustomInputComponent
@@ -71,7 +71,7 @@ const InputDescriptionComponent: React.FC<InputDescriptionProps> = ({
         <label htmlFor="about" >
           <p className="font-lato font-light ">Brief description about yourself</p>
           <textarea
-          className="resize-none appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-40"
+          className="textarea-custom"
             name="about"
             value={formData.about}
             onChange={handleTextAreaInput}

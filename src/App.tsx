@@ -43,11 +43,11 @@ function App() {
   const [allLanguages, setAllLanguages] = useState<ISkillsData[]>([]);
 
   // funciones para descripcion
-  const handleData = (event: (ChangeEvent<HTMLInputElement>)) => {
+  const handleData = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-  const handleDataTextArea = (event: (ChangeEvent<HTMLTextAreaElement>)) => {
+  const handleDataTextArea = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -55,7 +55,7 @@ function App() {
   /// funciones para experiencia
   const handleExpEditData = (
     event:
-      (EventTarget & HTMLInputElement)
+      | (EventTarget & HTMLInputElement)
       | (EventTarget & HTMLTextAreaElement),
     id: number
   ) => {
@@ -135,7 +135,6 @@ function App() {
     setAllLanguages([...allLanguages, { ...languageData, ["id"]: currentId }]);
   };
 
-
   const handleDeleteLanguage = (id: number) => {
     setAllLanguages((allLanguages) =>
       allLanguages.filter((language) => language.id !== id)
@@ -160,12 +159,14 @@ function App() {
   return (
     <div className=" bg-[#ffffff] h-screen w-screen flex flex-row justify-center items-center">
       <InputsFieldComponent>
+        {/* Description inputs */}
         <InputDescriptionComponent
           handleData={handleData}
           formData={formData}
           handleTextAreaInput={handleDataTextArea}
         />
-        <SeparatorComponent/>
+        <SeparatorComponent />
+        {/* Experience/Jobs Inputs */}
         <InputsExperienceComponent handleClickExp={handleClickExp} />
         <ListInputsComponent
           allElementsArray={allJobs}
@@ -173,30 +174,39 @@ function App() {
           handleEditElement={handleExpEditData}
           listTitle="Jobs"
         />
-        <SeparatorComponent/>
+        <SeparatorComponent />
+        {/* Education Inputs */}
+        <InputEducationComponent handleAddEducation={handleAddEducation} />
         <ListInputsComponent
           allElementsArray={allEducation}
           handleDeleteElement={handleDeleteEducation}
           handleEditElement={handleEducationEditData}
           listTitle="Education"
         />
-        <InputEducationComponent handleAddEducation={handleAddEducation} />
+        <SeparatorComponent />
+        {/* Skills Inputs */}
+        <InputsSkillsComponennt
+          handleAddSkill={handleAddSkill}
+          title="Skills"
+        />
         <ListInputsComponent
           allElementsArray={allSkills}
           handleDeleteElement={handleDeleteSkill}
           handleEditElement={handleSkillEditData}
           listTitle="Skills"
         />
-        <SeparatorComponent/>
-        <InputsSkillsComponennt handleAddSkill={handleAddSkill} />
+        <SeparatorComponent />
+        {/* Languages Inputs */}
+        <InputsSkillsComponennt
+          handleAddSkill={handleAddLanguage}
+          title="Languages"
+        />
         <ListInputsComponent
           allElementsArray={allLanguages}
           handleDeleteElement={handleDeleteLanguage}
           handleEditElement={handleLanguageEditData}
           listTitle="Languages"
         />
-        <SeparatorComponent/>
-        <InputsSkillsComponennt handleAddSkill={handleAddLanguage} />
       </InputsFieldComponent>
       <ResumeComponent
         formData={formData}

@@ -69,7 +69,7 @@ const InputsExperienceComponent: React.FC<InputExperienceData> = ({
         <label className="font-lato font-light">
           <p>Job Description</p>
           <textarea
-            className="resize-none appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-40"
+            className="textarea-custom"
             name="description"
             value={expData.description}
             onChange={handleExpDataTextarea}
@@ -84,7 +84,7 @@ const InputsExperienceComponent: React.FC<InputExperienceData> = ({
             setExpData(initialValues);
           }}
         >
-          SUBMIT
+          ADD TO RESUME
         </button>
       </form>
     </section>
