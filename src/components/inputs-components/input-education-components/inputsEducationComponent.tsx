@@ -54,7 +54,7 @@ const InputEducationComponent: React.FC<InputEducationProps> = ({
           onChange={handleEducationData}
         />
         <button
-          className="border-2 border-red-950"
+          className="btn-blue col-span-2"
           type="button"
           onClick={() => {
             initialEducationId++;

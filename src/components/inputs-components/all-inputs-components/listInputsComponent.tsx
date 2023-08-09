@@ -14,19 +14,23 @@ interface AllListComponentProps {
   allElementsArray: (IExperienceData | IEducationData | ISkillsData)[];
   handleDeleteElement: (id: number) => void;
   handleEditElement: EditDataHandler;
+  listTitle: string;
 }
 
 const ListInputsComponent: React.FC<AllListComponentProps> = ({
-  allElementsArray: allElementsArray,
-  handleDeleteElement: handleDeleteElement,
-  handleEditElement: handleEditElement,
+  allElementsArray,
+  handleDeleteElement,
+  handleEditElement,
+  listTitle,
+
 }) => {
   if (allElementsArray.length == 0) {
     return;
   }
+
   return (
     <div>
-      <h3>Added Jobs</h3>
+      <h3>Added {listTitle}</h3>
       <section className="flex flex-col gap-3">
         {allElementsArray.map((element) => (
           <ElementComponent
@@ -34,6 +38,10 @@ const ListInputsComponent: React.FC<AllListComponentProps> = ({
             element={element}
             handleDeleteElement={handleDeleteElement}
             handleEditElement={handleEditElement}
+            title={"posicion" in element ? element.companyName : 
+                  "institucion" in element ? element.institucion :
+                  "skillLevel" in element ? element.skillName :
+                   'Error'}
           />
         ))}
       </section>

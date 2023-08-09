@@ -14,4 +14,5 @@ export interface IDescriptionData{
 export interface InputDescriptionProps {
     handleData: (event: (ChangeEvent<HTMLInputElement>) ) => void;
     formData: IDescriptionData;
+    handleTextAreaInput:(event: (ChangeEvent<HTMLTextAreaElement>)) => void;
   }

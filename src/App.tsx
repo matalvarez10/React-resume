@@ -23,6 +23,8 @@ import { initialEducationId } from "./components/inputs-components/input-educati
 import InputsSkillsComponennt from "./components/inputs-components/input-skills-components/inputsSkillsComponent";
 import { initialSkillId } from "./components/inputs-components/input-skills-components/inputsSkillsComponent";
 
+//imports de components customizados
+import SeparatorComponent from "./components/style-components/separatorComponent";
 function App() {
   const [formData, setFormData] = useState<IDescriptionData>({
     nombre: "",
@@ -41,7 +43,11 @@ function App() {
   const [allLanguages, setAllLanguages] = useState<ISkillsData[]>([]);
 
   // funciones para descripcion
-  const handleData = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleData = (event: (ChangeEvent<HTMLInputElement>)) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+  const handleDataTextArea = (event: (ChangeEvent<HTMLTextAreaElement>)) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -157,32 +163,39 @@ function App() {
         <InputDescriptionComponent
           handleData={handleData}
           formData={formData}
+          handleTextAreaInput={handleDataTextArea}
         />
-
+        <SeparatorComponent/>
         <InputsExperienceComponent handleClickExp={handleClickExp} />
         <ListInputsComponent
           allElementsArray={allJobs}
           handleDeleteElement={handleDeleteJob}
           handleEditElement={handleExpEditData}
+          listTitle="Jobs"
         />
-        <hr className=" h-1 bg-blue-700 w-full m-2" />
+        <SeparatorComponent/>
         <ListInputsComponent
           allElementsArray={allEducation}
           handleDeleteElement={handleDeleteEducation}
           handleEditElement={handleEducationEditData}
+          listTitle="Education"
         />
         <InputEducationComponent handleAddEducation={handleAddEducation} />
         <ListInputsComponent
           allElementsArray={allSkills}
           handleDeleteElement={handleDeleteSkill}
           handleEditElement={handleSkillEditData}
+          listTitle="Skills"
         />
+        <SeparatorComponent/>
         <InputsSkillsComponennt handleAddSkill={handleAddSkill} />
         <ListInputsComponent
           allElementsArray={allLanguages}
           handleDeleteElement={handleDeleteLanguage}
           handleEditElement={handleLanguageEditData}
+          listTitle="Languages"
         />
+        <SeparatorComponent/>
         <InputsSkillsComponennt handleAddSkill={handleAddLanguage} />
       </InputsFieldComponent>
       <ResumeComponent
