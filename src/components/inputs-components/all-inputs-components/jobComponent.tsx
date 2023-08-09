@@ -3,7 +3,7 @@ import { IEducationData } from "../../../interfaces/inputEducation.interface";
 import { useState } from "react";
 import { EditDataHandler } from "./allJobsComponent";
 import { FaTrashCan, FaFilePen } from "react-icons/fa6";
-import EditAllInputs from "../../allEditInputs";
+import EditAllInputs from "./allEditInputs";
 import { ISkillsData } from "../../../interfaces/inputSkills.interface";
 
 interface JobComponentProps {

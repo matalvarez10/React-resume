@@ -7,7 +7,7 @@ import { ISkillsData } from "./interfaces/inputSkills.interface";
 
 /// componentes para ingresar experiencia
 import InputsExperience from "./components/inputs-components/input-experience-components/inputseExperienceComponent";
-import AllJobsComponent from "./components/inputs-components/input-experience-components/allJobsComponent";
+import AllJobsComponent from "./components/inputs-components/all-inputs-components/allJobsComponent";
 import { initialExperienceId } from "./components/inputs-components/input-experience-components/inputseExperienceComponent";
 ///inputs para secciones inputs y cv
 import InputsFieldComponent from "./components/inputsFieldComponent";

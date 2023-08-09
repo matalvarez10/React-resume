@@ -1,6 +1,6 @@
 import { IExperienceData } from "../../../interfaces/inputExperience.interface";
 import CustomInputComponent from "../../style-components/mainInputComponent";
-import { EditDataHandler } from "./allJobsComponent";
+import { EditDataHandler } from "../all-inputs-components/allJobsComponent";
 export interface EditInputsProps {
   job: IExperienceData  ;
   handleExpResumeData:EditDataHandler;

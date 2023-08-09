@@ -1,10 +1,10 @@
-import { IExperienceData } from "../interfaces/inputExperience.interface";
-import { IEducationData } from "../interfaces/inputEducation.interface";
-import EditInputs from "./inputs-components/input-experience-components/editInputsComponent";
-import EditEdducationInputs from "./inputs-components/input-education-components/editEducationInputs";
-import { EditDataHandler } from "./inputs-components/input-experience-components/allJobsComponent";
-import EditSkillsInputs from "./inputs-components/input-skills-components/editSkillInputs";
-import { ISkillsData } from "../interfaces/inputSkills.interface";
+import { IExperienceData } from "../../../interfaces/inputExperience.interface";
+import { IEducationData } from "../../../interfaces/inputEducation.interface";
+import EditInputs from "../input-experience-components/editInputsComponent";
+import EditEdducationInputs from "../input-education-components/editEducationInputs";
+import { EditDataHandler } from "./allJobsComponent";
+import EditSkillsInputs from "../input-skills-components/editSkillInputs";
+import { ISkillsData } from "../../../interfaces/inputSkills.interface";
 export interface EditInputsProps {
   job: IExperienceData | IEducationData | ISkillsData ;
   handleExpResumeData:EditDataHandler;
