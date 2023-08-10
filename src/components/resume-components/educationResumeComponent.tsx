@@ -1,12 +1,12 @@
 import { IEducationData } from "../../interfaces/inputEducation.interface";
-
+import CustomSectionHeader from "../resume-style-components/sectionHeader";
+import IndividualEducationComponent from "./IndividualEducationComponent";
 const EducationResumeComponent = ({allEducationArray}:{allEducationArray: IEducationData[]}) => {
     return ( 
         <>
+        <CustomSectionHeader titulo="Education"/>
             {allEducationArray.map(education=>(
-                <div key={education.id} className="flex ">
-                    <p className="text-red-500 bg-slate-600 hover:bg-zinc-950 uppercase ">{education.institucion}</p>
-                </div>
+                <IndividualEducationComponent key={education.id} education={education}/>
             ))}
         </> 
     );

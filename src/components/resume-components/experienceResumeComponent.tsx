@@ -1,5 +1,5 @@
 import { IExperienceData } from "../../interfaces/inputExperience.interface";
-import IndividualExperienceComponent from "./individualComponent";
+import IndividualExperienceComponent from "./individualExperienceComponent";
 import CustomSectionHeader from "../resume-style-components/sectionHeader";
 const ExperienceResumeComponent = ({
   allJobsArray,

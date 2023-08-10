@@ -25,7 +25,7 @@ const ResumeComponent: React.FC<ResumeComponentProps> = ({
   return (
     <section className="bg-[#eaefff] w-full h-full flex justify-center overflow-auto lg:w-[55%]">
       {/* RESUME CANVAS */}
-      <div className="bg-white h-[1000px] w-[1000px] shadow-lg lg:w-[567px] lg:h-[800px] p-5 align-middle my-10 ">
+      <div className="bg-white h-[1000px] w-[1000px] shadow-lg lg:w-[567px] lg:h-[800px] p-5 align-middle my-10 flex flex-col gap-3">
         <DescriptionComponent formData={formData} />
         <div className="flex flex-row gap-10">
           <div className="w-[60%]">
@@ -33,8 +33,14 @@ const ResumeComponent: React.FC<ResumeComponentProps> = ({
           </div>
           <div className="w-[35%] flex flex-col gap-1">
             <EducationResumeComponent allEducationArray={allEducationArray} />
-            <SkillsResumeComponent allSkillsArray={allSkillsArray} />
-            <SkillsResumeComponent allSkillsArray={allLanguagesArray} />
+            <SkillsResumeComponent
+              allSkillsArray={allSkillsArray}
+              titulo="Skills"
+            />
+            <SkillsResumeComponent
+              allSkillsArray={allLanguagesArray}
+              titulo="Languages"
+            />
           </div>
         </div>
       </div>
