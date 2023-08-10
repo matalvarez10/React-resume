@@ -23,8 +23,9 @@ const ResumeComponent: React.FC<ResumeComponentProps> = ({
   allLanguagesArray,
 }) => {
   return (
-    <section className="bg-[#eaefff] w-full h-full flex justify-center items-center overflow-auto lg:w-1/2">
-      <div className="bg-white overflow-auto h-[1000px] w-[95%] shadow-lg lg:w-[65%] lg:h-[91.65%] ">
+    <section className="bg-[#eaefff] w-full h-full flex justify-center overflow-auto lg:w-[55%]">
+      {/* RESUME CANVAS */}
+      <div className="bg-white h-[1000px] w-[1000px] shadow-lg lg:w-[567px] lg:h-[800px] p-5 align-middle my-10 ">
         <DescriptionComponent formData={formData} />
         <ExperienceComponent allJobsArray={allJobsArray} />
         <EducationResumeComponent allEducationArray={allEducationArray} />
