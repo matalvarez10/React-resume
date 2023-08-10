@@ -23,13 +23,15 @@ const ResumeComponent: React.FC<ResumeComponentProps> = ({
   allLanguagesArray,
 }) => {
   return (
-    <div className="border-2 border-black w-6/12 h-full">
-      <DescriptionComponent formData={formData}></DescriptionComponent>
-      <ExperienceComponent allJobsArray={allJobsArray}></ExperienceComponent>
-      <EducationResumeComponent allEducationArray={allEducationArray}></EducationResumeComponent>
-      <SkillsResumeComponent allSkillsArray={allSkillsArray}></SkillsResumeComponent>
-      <SkillsResumeComponent allSkillsArray={allLanguagesArray}></SkillsResumeComponent>
-    </div>
+    <section className="bg-[#eaefff] w-full h-full flex justify-center items-center overflow-auto lg:w-1/2">
+      <div className="bg-white overflow-auto h-[1000px] w-[95%] shadow-lg lg:w-[65%] lg:h-[91.65%] ">
+        <DescriptionComponent formData={formData} />
+        <ExperienceComponent allJobsArray={allJobsArray} />
+        <EducationResumeComponent allEducationArray={allEducationArray} />
+        <SkillsResumeComponent allSkillsArray={allSkillsArray} />
+        <SkillsResumeComponent allSkillsArray={allLanguagesArray} />
+      </div>
+    </section>
   );
 };
 

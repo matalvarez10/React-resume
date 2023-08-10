@@ -24,7 +24,7 @@ import InputsSkillsComponennt from "./components/inputs-components/input-skills-
 import { initialSkillId } from "./components/inputs-components/input-skills-components/inputsSkillsComponent";
 
 //imports de components customizados
-import SeparatorComponent from "./components/style-components/separatorComponent";
+import SeparatorComponent from "./components/input-style-components/separatorComponent";
 function App() {
   const [formData, setFormData] = useState<IDescriptionData>({
     nombre: "",
@@ -157,7 +157,7 @@ function App() {
   };
 
   return (
-    <div className=" bg-[#ffffff] h-screen w-screen flex flex-row justify-center items-center">
+    <main className=" bg-[#ffffff] h-screen w-screen flex flex-col justify-center items-center lg:flex-row">
       <InputsFieldComponent>
         {/* Description inputs */}
         <InputDescriptionComponent
@@ -215,7 +215,7 @@ function App() {
         allSkillsArray={allSkills}
         allLanguagesArray={allLanguages}
       ></ResumeComponent>
-    </div>
+    </main>
   );
 }
 

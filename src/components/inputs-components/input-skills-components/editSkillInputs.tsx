@@ -1,7 +1,7 @@
 import { ISkillsData } from "../../../interfaces/inputSkills.interface";
 import { EditDataHandler } from "../all-inputs-components/listInputsComponent";
-import CustomInputComponent from "../../style-components/mainInputComponent";
-import CustomSelectComponent from "../../style-components/selectComponent";
+import CustomInputComponent from "../../input-style-components/mainInputComponent";
+import CustomSelectComponent from "../../input-style-components/selectComponent";
 interface EditSkillsInterface {
   skill: ISkillsData;
   handleEditSkill: EditDataHandler;

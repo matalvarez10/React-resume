@@ -1,8 +1,8 @@
 import { InputExperienceData } from "../../../interfaces/inputExperience.interface";
 import { IExperienceData } from "../../../interfaces/inputExperience.interface";
 import { ChangeEvent, useState } from "react";
-import CustomInputComponent from "../../style-components/mainInputComponent";
-import TextHeaderComponent from "../../style-components/textHeaderComponent";
+import CustomInputComponent from "../../input-style-components/mainInputComponent";
+import TextHeaderComponent from "../../input-style-components/textHeaderComponent";
 
 const InputsExperienceComponent: React.FC<InputExperienceData> = ({
   handleClickExp,

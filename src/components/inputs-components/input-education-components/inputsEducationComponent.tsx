@@ -1,7 +1,7 @@
 import { IEducationData } from "../../../interfaces/inputEducation.interface";
 import { useState, ChangeEvent } from "react";
-import CustomInputComponent from "../../style-components/mainInputComponent";
-import TextHeaderComponent from "../../style-components/textHeaderComponent";
+import CustomInputComponent from "../../input-style-components/mainInputComponent";
+import TextHeaderComponent from "../../input-style-components/textHeaderComponent";
 
 interface InputEducationProps {
   handleAddEducation: (educacionData: IEducationData) => void;

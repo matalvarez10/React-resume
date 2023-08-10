@@ -1,8 +1,8 @@
 import { useState, ChangeEvent } from "react";
 import { ISkillsData } from "../../../interfaces/inputSkills.interface";
-import TextHeaderComponent from "../../style-components/textHeaderComponent";
-import CustomInputComponent from "../../style-components/mainInputComponent";
-import CustomSelectComponent from "../../style-components/selectComponent";
+import TextHeaderComponent from "../../input-style-components/textHeaderComponent";
+import CustomInputComponent from "../../input-style-components/mainInputComponent";
+import CustomSelectComponent from "../../input-style-components/selectComponent";
 
 const InputsSkillsComponent = ({
   handleAddSkill,

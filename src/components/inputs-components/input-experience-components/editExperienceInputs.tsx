@@ -1,5 +1,5 @@
 import { IExperienceData } from "../../../interfaces/inputExperience.interface";
-import CustomInputComponent from "../../style-components/mainInputComponent";
+import CustomInputComponent from "../../input-style-components/mainInputComponent";
 import { EditDataHandler } from "../all-inputs-components/listInputsComponent";
 export interface EditInputsProps {
   job: IExperienceData  ;

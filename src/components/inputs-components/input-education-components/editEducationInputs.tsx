@@ -1,5 +1,5 @@
 import { IEducationData } from "../../../interfaces/inputEducation.interface";
-import CustomInputComponent from "../../style-components/mainInputComponent";
+import CustomInputComponent from "../../input-style-components/mainInputComponent";
 interface EditInputsProps {
   education: IEducationData;
   handleEducationEditData: (
