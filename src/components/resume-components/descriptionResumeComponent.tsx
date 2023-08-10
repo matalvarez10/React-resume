@@ -12,7 +12,7 @@ const DescriptionComponent = ({formData}:{ formData:IDescriptionData}) => {
             <div className="flex flex-row gap-10">
                 <div className="w-[60%]">
                     <CustomSectionHeader titulo="About Me"/>
-                    <p className=" break-all font-lato text-justify text-xs">{formData.about}</p>
+                    <p className=" break-all font-lato text-justify text-xs text-[#323b4c]">{formData.about}</p>
                 </div>
                 <div className=" w-[35%] flex flex-col gap-1">
                     <CustomSectionHeader titulo="Contacts"/>

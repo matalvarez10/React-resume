@@ -1,15 +1,22 @@
 import { IExperienceData } from "../../interfaces/inputExperience.interface";
+import IndividualExperienceComponent from "./individualComponent";
+import CustomSectionHeader from "../resume-style-components/sectionHeader";
+const ExperienceResumeComponent = ({
+  allJobsArray,
+}: {
+  allJobsArray: IExperienceData[];
+}) => {
 
-const ExperienceComponent = ({allJobsArray}:{allJobsArray: IExperienceData[]}) => {
-    return ( 
-        <>
-            {allJobsArray.map(job=>(
-                <div key={job.id} className="">
-                    <p>{job.companyName}</p>
-                </div>
-            ))}
-        </> 
-    );
-}
- 
-export default ExperienceComponent;
+  return (
+    <>
+        <CustomSectionHeader titulo="Work Experience"/>
+          <div className="flex flex-col gap-4">
+          {allJobsArray.map((job) => (
+            <IndividualExperienceComponent key={job.id} job={job} />
+          ))}
+        </div>
+    </>
+  );
+};
+
+export default ExperienceResumeComponent;
