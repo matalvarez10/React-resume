@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent,FormEventHandler} from "react";
 import { ISkillsData } from "../../../interfaces/inputSkills.interface";
 import TextHeaderComponent from "../../input-style-components/textHeaderComponent";
 import CustomInputComponent from "../../input-style-components/mainInputComponent";
@@ -21,10 +21,18 @@ const InputsSkillsComponent = ({
     setSkillsData({ ...skillsData, [name]: value });
   };
 
+  const onSubmit:FormEventHandler<HTMLFormElement> = (event) =>{
+    event.preventDefault();
+    initialSkillId++;
+    handleAddSkill(skillsData);
+    setSkillsData(initialSkillsValues);
+  }
+
+
   return (
     <>
       <TextHeaderComponent title={title} />
-      <form>
+      <form onSubmit={onSubmit}>
         <div className="grid grid-cols-2 gap-4">
           <CustomInputComponent
             placeholder=""
@@ -33,21 +41,19 @@ const InputsSkillsComponent = ({
             name="skillName"
             onChange={handleSkillDataInput}
             value={skillsData.skillName}
+            required
           />
           <CustomSelectComponent
             labelText="Profficiency level"
             name="skillLevel"
             onChange={handleSkillDataInput}
             value={skillsData.skillLevel}
+            required
           />
         </div>
         <button
-          type="button"
+          type="submit"
           className="btn-blue"
-          onClick={() => {
-            initialSkillId++;
-            handleAddSkill(skillsData);
-          }}
         >
           ADD TO RESUME
         </button>

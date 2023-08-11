@@ -1,5 +1,5 @@
 import { IEducationData } from "../../../interfaces/inputEducation.interface";
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent,FormEventHandler } from "react";
 import CustomInputComponent from "../../input-style-components/mainInputComponent";
 import TextHeaderComponent from "../../input-style-components/textHeaderComponent";
 
@@ -17,15 +17,24 @@ const InputEducationComponent: React.FC<InputEducationProps> = ({
     const { name, value } = event.target;
     setEducationData({ ...educationData, [name]: value });
   };
+
+  const onSubmit:FormEventHandler<HTMLFormElement> = (event) =>{
+    event.preventDefault();
+    initialEducationId++;
+    handleAddEducation(educationData);
+    setEducationData(initialEducationValues);
+  }
+  
   return (
     <>
       <TextHeaderComponent title="Courses/Education"/>
-      <form className="grid grid-cols-2 gap-4"> 
+      <form onSubmit={onSubmit} className="grid grid-cols-2 gap-4"> 
         <CustomInputComponent
           placeholder=""
           labelText="Course Studied"
           type="text"
           name="courseStudied"
+          required
           value={educationData.courseStudied}
           onChange={handleEducationData}
         />
@@ -34,6 +43,7 @@ const InputEducationComponent: React.FC<InputEducationProps> = ({
           labelText="Educational Institution"
           type="text"
           name="institucion"
+          required
           value={educationData.institucion}
           onChange={handleEducationData}
         />
@@ -42,6 +52,7 @@ const InputEducationComponent: React.FC<InputEducationProps> = ({
           labelText="Fecha Inicio"
           type="date"
           name="fechaInicio"
+          required
           value={educationData.fechaInicio}
           onChange={handleEducationData}
         />
@@ -50,16 +61,13 @@ const InputEducationComponent: React.FC<InputEducationProps> = ({
           labelText="Fecha Termino"
           type="date"
           name="fechaTermino"
+          required
           value={educationData.fechaTermino}
           onChange={handleEducationData}
         />
         <button
           className="btn-blue col-span-2"
-          type="button"
-          onClick={() => {
-            initialEducationId++;
-            handleAddEducation(educationData);
-          }}
+          type="submit"
         >
           ADD TO RESUME
         </button>

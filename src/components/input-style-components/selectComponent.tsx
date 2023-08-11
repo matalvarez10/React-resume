@@ -5,6 +5,7 @@ interface CustomSelectComponentProps {
   name: string;
   value: string;
   onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
+  required:boolean;
 }
 
 const CustomSelectComponent: React.FC<CustomSelectComponentProps> = ({

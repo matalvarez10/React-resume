@@ -1,6 +1,6 @@
 import { InputExperienceData } from "../../../interfaces/inputExperience.interface";
 import { IExperienceData } from "../../../interfaces/inputExperience.interface";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState,FormEventHandler } from "react";
 import CustomInputComponent from "../../input-style-components/mainInputComponent";
 import TextHeaderComponent from "../../input-style-components/textHeaderComponent";
 
@@ -17,17 +17,24 @@ const InputsExperienceComponent: React.FC<InputExperienceData> = ({
     const { name, value } = event.target;
     setExpData({ ...expData, [name]: value });
   };
+  const onSubmit:FormEventHandler<HTMLFormElement> = (event) =>{
+    event.preventDefault();
+    initialExperienceId++;
+    handleClickExp(expData);
+    setExpData(initialValues);
+  }
 
   return (
     <section>
-      <TextHeaderComponent title="Job Experience"/>
-      <form >
+      <TextHeaderComponent title="Job Experience" />
+      <form onSubmit={onSubmit}>
         <div className="grid grid-cols-3 gap-4">
           <CustomInputComponent
             labelText="Role"
             placeholder="Role"
             type="text"
             name="posicion"
+            required
             value={expData.posicion}
             onChange={handleExpData}
           />
@@ -36,6 +43,7 @@ const InputsExperienceComponent: React.FC<InputExperienceData> = ({
             placeholder="Company Name"
             type="text"
             name="companyName"
+            required
             value={expData.companyName}
             onChange={handleExpData}
           />
@@ -44,6 +52,7 @@ const InputsExperienceComponent: React.FC<InputExperienceData> = ({
             placeholder="Place"
             type="text"
             name="lugar"
+            required
             value={expData.lugar}
             onChange={handleExpData}
           />
@@ -54,6 +63,7 @@ const InputsExperienceComponent: React.FC<InputExperienceData> = ({
             placeholder=""
             type="date"
             name="fechaInicio"
+            required
             value={expData.fechaInicio}
             onChange={handleExpData}
           />
@@ -62,6 +72,7 @@ const InputsExperienceComponent: React.FC<InputExperienceData> = ({
             placeholder=""
             type="date"
             name="fechaTermino"
+            required
             value={expData.fechaTermino}
             onChange={handleExpData}
           />
@@ -71,18 +82,14 @@ const InputsExperienceComponent: React.FC<InputExperienceData> = ({
           <textarea
             className="textarea-custom"
             name="description"
+            required
             value={expData.description}
             onChange={handleExpDataTextarea}
           />
         </label>
         <button
-        className="btn-blue"
-          type="button"
-          onClick={() => {
-            initialExperienceId++;
-            handleClickExp(expData);
-            setExpData(initialValues);
-          }}
+          className="btn-blue"
+          type="submit"
         >
           ADD TO RESUME
         </button>

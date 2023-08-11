@@ -4,6 +4,7 @@ interface CustomInputComponentProps {
   placeholder: string;
   name: string;
   value: string;
+  required:boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
