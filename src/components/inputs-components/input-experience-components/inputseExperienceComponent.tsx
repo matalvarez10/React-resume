@@ -28,7 +28,7 @@ const InputsExperienceComponent: React.FC<InputExperienceData> = ({
     <section>
       <TextHeaderComponent title="Job Experience" />
       <form onSubmit={onSubmit}>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <CustomInputComponent
             labelText="Role"
             placeholder="Role"

@@ -38,10 +38,10 @@ const ResumeComponent: React.FC<ResumeComponentProps> = ({
   };
   return (
     <>
-      <section className="bg-[#eaefff] w-full h-full flex justify-center overflow-auto lg:w-[55%]">
+      <section className="bg-[#eaefff] w-full h-full grid grid-cols-1 justify-center items-center overflow-auto lg:w-[55%]">
         {/* RESUME CANVAS */}
         <button onClick={generatePDF}>DESCARGA</button>
-        <div id="download-pdf" className="bg-white h-[1000px] w-[1000px] shadow-lg lg:w-[567px] lg:h-[800px] p-5 align-middle my-10 flex flex-col gap-3">
+        <div id="download-pdf" className="bg-white w-[567px] h-[800px] shadow-lg lg:w-[567px] lg:h-[800px] p-5 align-middle my-10 flex flex-col gap-3 m-auto">
           <DescriptionComponent formData={formData} />
           <div className="flex flex-row gap-10">
             <div className="w-[60%]">

@@ -164,7 +164,7 @@ function App() {
   };
 
   return (
-    <main className=" bg-[#ffffff]  min-w-[500px] h-screen w-screen flex flex-col justify-center items-center lg:flex-row">
+    <main className=" bg-[#ffffff]  h-screen w-screen flex flex-col justify-center items-center lg:flex-row">
       <InputsFieldComponent>
         {/* Description inputs */}
         <InputDescriptionComponent
