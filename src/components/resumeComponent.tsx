@@ -60,7 +60,7 @@ const ResumeComponent: React.FC<ResumeComponentProps> = ({
       </div>
     </div>
   </div>
-  <button onClick={generatePDF} className="fixed bottom-8 right-8 bg-blue-700 rounded text-white font-raleway font-bold h-12 w-[200px] flex items-center gap-5 hover:scale-110">
+  <button onClick={generatePDF} className="fixed bottom-8 right-8 bg-blue-700 rounded text-white font-raleway font-bold h-12 w-[200px] flex items-center gap-5 hover:scale-110 transition ease-in duration-300">
     <span className="h-full w-[25%] display rounded-tl rounded-bl flex justify-center items-center bg-blue-600"><FaDownload className="mb-1"/></span>
     DOWNLOAD
   </button>
