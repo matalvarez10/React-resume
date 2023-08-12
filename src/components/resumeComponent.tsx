@@ -6,6 +6,8 @@ import { IExperienceData } from "../interfaces/inputExperience.interface";
 import { IEducationData } from "../interfaces/inputEducation.interface";
 import { ISkillsData } from "../interfaces/inputSkills.interface";
 import SkillsResumeComponent from "./resume-components/skillsResumeComponent";
+import html2pdf from "html2pdf.js";
+
 
 interface ResumeComponentProps {
   formData: IDescriptionData;
@@ -22,29 +24,44 @@ const ResumeComponent: React.FC<ResumeComponentProps> = ({
   allSkillsArray,
   allLanguagesArray,
 }) => {
+  const generatePDF = () => {
+    const element = document.getElementById("download-pdf");
+    if (element) {
+      const opt = {
+        filename: "resume.pdf",
+        image: { type: "jpg", quality: 1 },
+        html2canvas: { scale: 2},
+        jsPDF: { unit: "mm", format: [152, 165*1.41], orientation: "portrait"},
+      };
+      html2pdf().from(element).set(opt).save();
+    }
+  };
   return (
-    <section className="bg-[#eaefff] w-full h-full flex justify-center overflow-auto lg:w-[55%]">
-      {/* RESUME CANVAS */}
-      <div className="bg-white h-[1000px] w-[1000px] shadow-lg lg:w-[567px] lg:h-[800px] p-5 align-middle my-10 flex flex-col gap-3">
-        <DescriptionComponent formData={formData} />
-        <div className="flex flex-row gap-10">
-          <div className="w-[60%]">
-            <ExperienceResumeComponent allJobsArray={allJobsArray} />
-          </div>
-          <div className="w-[35%] flex flex-col gap-1">
-            <EducationResumeComponent allEducationArray={allEducationArray} />
-            <SkillsResumeComponent
-              allSkillsArray={allSkillsArray}
-              titulo="Skills"
-            />
-            <SkillsResumeComponent
-              allSkillsArray={allLanguagesArray}
-              titulo="Languages"
-            />
+    <>
+      <section className="bg-[#eaefff] w-full h-full flex justify-center overflow-auto lg:w-[55%]">
+        {/* RESUME CANVAS */}
+        <button onClick={generatePDF}>DESCARGA</button>
+        <div id="download-pdf" className="bg-white h-[1000px] w-[1000px] shadow-lg lg:w-[567px] lg:h-[800px] p-5 align-middle my-10 flex flex-col gap-3">
+          <DescriptionComponent formData={formData} />
+          <div className="flex flex-row gap-10">
+            <div className="w-[60%]">
+              <ExperienceResumeComponent allJobsArray={allJobsArray} />
+            </div>
+            <div className="w-[35%] flex flex-col gap-1">
+              <EducationResumeComponent allEducationArray={allEducationArray} />
+              <SkillsResumeComponent
+                allSkillsArray={allSkillsArray}
+                titulo="Skills"
+              />
+              <SkillsResumeComponent
+                allSkillsArray={allLanguagesArray}
+                titulo="Languages"
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

@@ -25,8 +25,11 @@ import { initialSkillId } from "./components/inputs-components/input-skills-comp
 
 //imports de components customizados
 import SeparatorComponent from "./components/input-style-components/separatorComponent";
+
+//import sample data
+import { exampleDescription,exampleEducation,exampleSkills,experienceExample,languagesExample } from "./utils/example-values";
 function App() {
-  const [formData, setFormData] = useState<IDescriptionData>({
+  const [formData, setFormData] = useState<IDescriptionData>(/* {
     nombre: "",
     apellido: "",
     cargo: "",
@@ -35,12 +38,16 @@ function App() {
     correo: "",
     sitioWeb: "",
     ubicacion: "",
-  });
+  } */exampleDescription);
 
-  const [allJobs, setAllJobs] = useState<IExperienceData[]>([]);
-  const [allEducation, setAllEducation] = useState<IEducationData[]>([]);
-  const [allSkills, setAllSkills] = useState<ISkillsData[]>([]);
-  const [allLanguages, setAllLanguages] = useState<ISkillsData[]>([]);
+
+  // Default export is a4 paper, portrait, using millimeters for units
+// Default export is a4 paper, portrait, using millimeters for units
+
+  const [allJobs, setAllJobs] = useState<IExperienceData[]>(experienceExample);
+  const [allEducation, setAllEducation] = useState<IEducationData[]>(exampleEducation);
+  const [allSkills, setAllSkills] = useState<ISkillsData[]>(exampleSkills);
+  const [allLanguages, setAllLanguages] = useState<ISkillsData[]>(languagesExample);
 
   // funciones para descripcion
   const handleData = (event: ChangeEvent<HTMLInputElement>) => {
@@ -51,7 +58,7 @@ function App() {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-  console.log(formData);
+  console.log(allJobs);
   /// funciones para experiencia
   const handleExpEditData = (
     event:
@@ -157,7 +164,7 @@ function App() {
   };
 
   return (
-    <main className=" bg-[#ffffff] h-screen w-screen flex flex-col justify-center items-center lg:flex-row">
+    <main className=" bg-[#ffffff]  min-w-[500px] h-screen w-screen flex flex-col justify-center items-center lg:flex-row">
       <InputsFieldComponent>
         {/* Description inputs */}
         <InputDescriptionComponent
