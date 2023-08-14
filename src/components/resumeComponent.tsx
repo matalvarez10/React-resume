@@ -41,7 +41,7 @@ const ResumeComponent: React.FC<ResumeComponentProps> = ({
     <>
 <section className="bg-[#eaefff] w-full h-full grid grid-cols-1 gap-2 overflow-auto lg:w-[55%] relative">
   {/* RESUME CANVAS */}
-  <div id="download-pdf" className="mt-5 mx-auto bg-white w-[567px] shadow-lg lg:w-[567px] lg:h-[800px] p-5 flex flex-col gap-3">
+  <div id="download-pdf" className="mt-5 mx-auto bg-white w-[567px] shadow-lg lg:w-[567px] lg:h-[800px] p-5 flex flex-col gap-3 overflow-hidden">
     <DescriptionComponent formData={formData} />
     <div className="flex flex-row gap-10">
       <div className="w-[60%]">

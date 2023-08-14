@@ -4,29 +4,29 @@ import { ISkillsData } from "../interfaces/inputSkills.interface";
 import { IExperienceData } from "../interfaces/inputExperience.interface";
 
 export const exampleDescription: IDescriptionData = {
-  nombre: "Matias ",
-  apellido: "Alvarez",
+  nombre: "John ",
+  apellido: "Doe",
   cargo: "UI/UX Designer",
   about:
     '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ',
   numero: "+123 456 ",
   correo: "email@email.com",
   sitioWeb: "www.github.com",
-  ubicacion: "China Town #123",
+  ubicacion: "Street #123",
 };
 
 export const exampleEducation: IEducationData[] = [
   {
     id: 1,
     courseStudied: "Software engineering",
-    institucion: "UTEM",
+    institucion: "University 1",
     fechaInicio: "2023-08-12",
     fechaTermino: "2023-08-12",
   },
   {
     id: 2,
-    courseStudied: "Data Scientist",
-    institucion: "USACH",
+    courseStudied: "Data Science",
+    institucion: "University 2",
     fechaInicio: "2016-02-11",
     fechaTermino: "2021-02-11",
   },
