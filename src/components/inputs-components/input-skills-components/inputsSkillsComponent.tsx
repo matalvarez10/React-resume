@@ -35,7 +35,7 @@ const InputsSkillsComponent = ({
       <form onSubmit={onSubmit}>
         <div className="grid grid-cols-2 gap-4">
           <CustomInputComponent
-            placeholder=""
+            placeholder="Skill"
             labelText={`Add a ${title.slice(0, -1)}`}
             type="text"
             name="skillName"

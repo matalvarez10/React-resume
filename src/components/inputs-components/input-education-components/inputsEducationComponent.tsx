@@ -30,7 +30,7 @@ const InputEducationComponent: React.FC<InputEducationProps> = ({
       <TextHeaderComponent title="Courses/Education"/>
       <form onSubmit={onSubmit} className="grid grid-cols-2 gap-4"> 
         <CustomInputComponent
-          placeholder=""
+          placeholder="Course Studied"
           labelText="Course Studied"
           type="text"
           name="courseStudied"
@@ -39,7 +39,7 @@ const InputEducationComponent: React.FC<InputEducationProps> = ({
           onChange={handleEducationData}
         />
         <CustomInputComponent
-          placeholder=""
+          placeholder="Educational Institution"
           labelText="Educational Institution"
           type="text"
           name="institucion"

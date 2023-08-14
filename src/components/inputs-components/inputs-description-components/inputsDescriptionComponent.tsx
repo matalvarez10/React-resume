@@ -14,7 +14,7 @@ const InputDescriptionComponent: React.FC<InputDescriptionProps> = ({
         <CustomInputComponent
          labelText="First Name"
           type="text"
-          placeholder="nombre"
+          placeholder="First Name"
           name="nombre"
           value={formData.nombre}
           onChange={handleData}
@@ -22,7 +22,7 @@ const InputDescriptionComponent: React.FC<InputDescriptionProps> = ({
         <CustomInputComponent
           labelText="Last Name"
           type="text"
-          placeholder="apellido"
+          placeholder="Last Name"
           name="apellido"
           value={formData.apellido}
           onChange={handleData}
@@ -30,7 +30,7 @@ const InputDescriptionComponent: React.FC<InputDescriptionProps> = ({
         <CustomInputComponent
           labelText="Phone Number"
           type="text"
-          placeholder="numero"
+          placeholder="Phone Number"
           name="numero"
           value={formData.numero}
           onChange={handleData}
@@ -38,7 +38,7 @@ const InputDescriptionComponent: React.FC<InputDescriptionProps> = ({
         <CustomInputComponent
           labelText="Email"
           type="text"
-          placeholder="correo"
+          placeholder="Email"
           name="correo"
           value={formData.correo}
           onChange={handleData}
@@ -46,7 +46,7 @@ const InputDescriptionComponent: React.FC<InputDescriptionProps> = ({
         <CustomInputComponent
           labelText="Website"
           type="text"
-          placeholder="sitioWeb"
+          placeholder="Website"
           name="sitioWeb"
           value={formData.sitioWeb}
           onChange={handleData}
@@ -54,7 +54,7 @@ const InputDescriptionComponent: React.FC<InputDescriptionProps> = ({
         <CustomInputComponent
           labelText="Location"
           type="text"
-          placeholder="ubicacion"
+          placeholder="Adress"
           name="ubicacion"
           value={formData.ubicacion}
           onChange={handleData}
@@ -63,7 +63,7 @@ const InputDescriptionComponent: React.FC<InputDescriptionProps> = ({
         <CustomInputComponent
           labelText="Occupation"
           type="text"
-          placeholder="occupation"
+          placeholder="Occupation"
           name="cargo"
           value={formData.cargo}
           onChange={handleData}
