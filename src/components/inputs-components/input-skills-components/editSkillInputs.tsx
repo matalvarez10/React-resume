@@ -33,6 +33,7 @@ const EditSkillsInputs: React.FC<EditSkillsInterface> = ({
       <CustomSelectComponent
         labelText="Edit proficiency level"
         name="skillLevel"
+        required
         onChange={(event) => {
           const value = event.target;
           handleChange(value, skill.id);

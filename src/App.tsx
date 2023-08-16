@@ -162,6 +162,7 @@ function App() {
       });
     });
   };
+  
 
   return (
     <main className=" bg-[#ffffff]  h-screen w-screen flex flex-col justify-center items-center lg:flex-row">
