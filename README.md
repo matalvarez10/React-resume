@@ -1,27 +1,42 @@
-# React + TypeScript + Vite
+# Resume/CV Maker App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+The Resume/CV Maker App is a web-based application created using React, TypeScript, and styled with Tailwind CSS. This app enables users to easily create and customize their resumes or CVs. Users can input their personal and professional information through an intuitive interface, view real-time template previews, and ultimately download the generated resume. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
 
-## Expanding the ESLint configuration
+- **User-Friendly Input Interface**: Users can add their personal details, contact information, education, work experience, skills, and more via a user-friendly input interface.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Real-Time Template Preview**: As users input their information, they can see real-time previews of how their resume will look in various templates.
 
-- Configure the top-level `parserOptions` property like this:
+- **Download Options**: The app provides options to download the generated resume in different formats, such as PDF, Word, or plain text.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+- **Auto-Save**: The app auto-saves the user's progress, allowing them to continue working on their resume at their convenience.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **Responsive Design**: The application is designed to work smoothly on both desktop and mobile devices.
+
+## Technologies Used
+
+- **React**: The primary library for building the user interface and managing application state.
+
+- **TypeScript**: Enhances code quality and helps prevent runtime errors.
+
+- **Tailwind CSS**: A utility-first CSS framework used to style the application, making it visually appealing and responsive.
+
+- **PDF Generation Library**: In this case, html2pdf was used.
+
+
+## Getting Started
+
+To use the Resume/CV Maker App, follow these steps:
+
+1. Clone the repository to your local machine.
+
+2. Navigate to the project directory.
+
+3. Install the required dependencies with `npm install` or `yarn install`.
+
+4. Start the development server using `npm start` or `yarn start`.
+
+5. Open your web browser and access the app at `http://localhost:3000`.
