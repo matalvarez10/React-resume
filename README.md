@@ -1,6 +1,6 @@
 # Resume/CV Maker App
 
-![Page Preview](preview-img-png)
+![Page Preview](preview-img.png)
 
 [Live Proview of the Project](https://matalvarez10.github.io/React-resume/)
 
