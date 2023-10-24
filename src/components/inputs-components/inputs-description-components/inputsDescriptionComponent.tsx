@@ -9,7 +9,7 @@ const InputDescriptionComponent: React.FC<InputDescriptionProps> = ({
 }) => {
   return (
     <section className="flex flex-col p-0 ">
-      <TextHeaderComponent title="Datos Personales" />
+      <TextHeaderComponent title="Personal Data" />
       <div className="grid grid-cols-2 gap-4">
         <CustomInputComponent
          labelText="First Name"
