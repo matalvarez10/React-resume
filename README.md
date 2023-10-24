@@ -2,7 +2,7 @@
 
 ![Page Preview](preview-img.PNG)
 
-[Live Proview of the Project](https://matalvarez10.github.io/React-resume/)
+[Live Preview of the Project](https://matalvarez10.github.io/React-resume/)
 
 
 ## Overview
