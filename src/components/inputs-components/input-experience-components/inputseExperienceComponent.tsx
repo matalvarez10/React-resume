@@ -59,7 +59,7 @@ const InputsExperienceComponent: React.FC<InputExperienceData> = ({
         </div>
         <div className="grid grid-cols-2 gap-4 ">
           <CustomInputComponent
-            labelText="Fecha Inicio"
+            labelText="Start Date"
             placeholder=""
             type="date"
             name="fechaInicio"
@@ -68,7 +68,7 @@ const InputsExperienceComponent: React.FC<InputExperienceData> = ({
             onChange={handleExpData}
           />
           <CustomInputComponent
-            labelText="Fecha Termino"
+            labelText="End date"
             placeholder=""
             type="date"
             name="fechaTermino"

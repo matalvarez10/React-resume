@@ -49,7 +49,7 @@ const InputEducationComponent: React.FC<InputEducationProps> = ({
         />
         <CustomInputComponent
           placeholder=""
-          labelText="Fecha Inicio"
+          labelText="Start Date"
           type="date"
           name="fechaInicio"
           required
@@ -58,7 +58,7 @@ const InputEducationComponent: React.FC<InputEducationProps> = ({
         />
         <CustomInputComponent
           placeholder=""
-          labelText="Fecha Termino"
+          labelText="End date"
           type="date"
           name="fechaTermino"
           required

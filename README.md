@@ -1,5 +1,10 @@
 # Resume/CV Maker App
 
+![Page Preview](image.jpg)
+
+[Live Proview of the Project](https://matalvarez10.github.io/React-resume/)
+
+
 ## Overview
 
 The Resume/CV Maker App is a web-based application created using React, TypeScript, and styled with Tailwind CSS. This app enables users to easily create and customize their resumes or CVs. Users can input their personal and professional information through an intuitive interface, view real-time template previews, and ultimately download the generated resume. 
