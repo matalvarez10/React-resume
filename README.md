@@ -40,8 +40,7 @@ To use the Resume/CV Maker App, follow these steps:
 
 2. Navigate to the project directory.
 
-3. Install the required dependencies with `npm install` or `yarn install`.
+3. Install the required dependencies with `npm install`.
 
-4. Start the development server using `npm start` or `yarn start`.
+4. Start the development server using `npm run dev`.
 
-5. Open your web browser and access the app at `http://localhost:3000`.
